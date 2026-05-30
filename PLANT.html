@@ -186,12 +186,12 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 
 						<img src="plant_images2/ltspice_gatedriver_500W.jpg" alt="Images" class="fh5co-align-right img-responsive">
 						<p>	The initial design used a two-switch buck-boost topology with independent gate drivers. Component sizing for the capacitors, inductor, MOSFETs, and high-side gate drive circuitry were all hand-calculated. Altium Designer was self-taught through online resources, and the layout was refined iteratively with guidance from power electronics advisors.
-							The first board failed during bring-up, likely due to solder bridging on fine-pitch components during hand assembly. A second population attempt yielded the same result,
-							with the high-side driver (10-MSOP package) suspected as the root cause — whether from routing or soldering. 
-							Given the cost of the components and the difficulty of diagnosing a fried IC, a full redesign was the right call.</p>
+							The first board failed during bring-up, likely due to solder bridging on fine-pitch components during hand assembly. </p>
 						
 						<img src="plant_images2/PLANT_MPPT_PCB_Revisions_whiteback.jpg" alt="Images" class="fh5co-align-right img-responsive">
-						<p>The redesigned board switched to a synchronous buck topology using a half-bridge driver, simplifying the gate drive circuit and reducing cost. The new layout prioritized testability — adding oscilloscope test points, easy ground references, 
+						<p>A second population attempt yielded the same result,
+							with the high-side driver (10-MSOP package) suspected as the root cause — whether from routing or soldering. 
+							Given the cost of the components and the difficulty of diagnosing a fried IC, a full redesign was the right call. The redesigned board switched to a synchronous buck topology using a half-bridge driver, simplifying the gate drive circuit and reducing cost. The new layout prioritized testability — adding oscilloscope test points, easy ground references, 
 						    and 0-ohm resistor bridges to allow staged bring-up of individual subsections before full power-on.</p>
 					
 					</div>

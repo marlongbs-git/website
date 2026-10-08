@@ -1,12 +1,3 @@
-<!-- 
-//////////////////////////////////////////////////////
-
-FREE HTML5 TEMPLATE 
-DESIGNED & DEVELOPED by FREEHTML5.CO
-
-//////////////////////////////////////////////////////
- -->
-
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -15,24 +6,23 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Marlon's Portfolio &mdash; WLF Hydroponic Labs</title>
+	<title>WLF Hydroponic Labs &mdash; Marlon Buchanan</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
-  	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
-  	<meta name="author" content="FREEHTML5.CO" />
+	<meta name="description" content="Mechanical design and fabrication for an automated indoor hydroponic farm: room modeling, piping network, seismic brackets, and structural frame." />
+	<meta name="keywords" content="mechanical design, SolidWorks, piping design, sheet metal, metal fabrication, 3D printing, hydroponics" />
+	<meta name="author" content="Marlon Buchanan" />
 
-  	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+	<!-- Link previews (LinkedIn, email, Slack) -->
+	<meta property="og:title" content="WLF Hydroponic Labs — Marlon Buchanan"/>
+	<meta property="og:image" content="https://marlongbs-git.github.io/website/wlf_images/system_model_4_3.png"/>
+	<meta property="og:url" content="https://marlongbs-git.github.io/website/WLF.html"/>
+	<meta property="og:site_name" content="Marlon Buchanan"/>
+	<meta property="og:description" content="Mechanical design and fabrication for an automated indoor hydroponic farm: room modeling, piping network, seismic brackets, and structural frame."/>
+	<meta name="twitter:title" content="WLF Hydroponic Labs — Marlon Buchanan" />
+	<meta name="twitter:image" content="https://marlongbs-git.github.io/website/wlf_images/system_model_4_3.png" />
+	<meta name="twitter:url" content="https://marlongbs-git.github.io/website/WLF.html" />
+	<meta name="twitter:card" content="summary_large_image" />
 
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
 
 	<!-- Google Webfont -->
@@ -53,151 +43,192 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 	<!-- Theme Style -->
 	<link rel="stylesheet" href="css/style.css">
 
-	
-	<!-- FOR IE9 below -->
+	<!-- Project page helpers (same block on every project page) -->
+	<style>
+		.project-back { display: inline-block; margin-bottom: 10px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+		.project-sub { font-size: 16px; opacity: .75; margin-top: -10px; }
+		.project-facts { margin: 0; padding: 0; list-style: none; }
+		.project-facts li { margin-bottom: 8px; }
+		.project-facts strong { display: inline-block; min-width: 70px; }
+		.project-figure { margin: 0 0 30px 0; }
+		.project-figure img { width: 100%; }
+		.project-figure figcaption { font-size: 13px; opacity: .7; margin-top: 8px; }
+		.project-section h2 { margin-top: 0; }
+	</style>
+
 	<!--[if lte IE 9]>
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-
 	</head>
 	<body>
-		
+
 		<!-- Header -->
 		<header id="fh5co-header" role="banner">
 			<div class="container">
-				<!-- Logo -->
 				<div id="fh5co-logo">
 					<a href="index.html">
-						<img src="images/logo.png" alt="Work Logo">
+						<img src="images/logo.png" alt="Marlon Buchanan logo">
 					</a>
-
 				</div>
-				<!-- Logo -->
-				
-				<!-- Mobile Toggle Menu Button -->
+
 				<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-				
-				<!-- Main Nav -->
+
 				<div id="fh5co-main-nav">
 					<nav id="fh5co-nav" role="navigation">
 						<ul>
-							<li class="fh5co-active">
+							<li>
 								<a href="index.html">Home</a>
 							</li>
-							<li>
+							<li class="fh5co-active">
 								<a href="projects.html">Projects</a>
 							</li>
-							<li>
-							</li>
+							<!-- Uncomment once these exist:
+							<li><a href="photography.html">Photography</a></li>
+							<li><a href="resume/Final_Year_Resume_gitpage_public.pdf" target="_blank">Resume</a></li>
+							-->
 						</ul>
 					</nav>
 				</div>
-				<!-- Main Nav -->
 			</div>
 		</header>
 		<!-- Header -->
 
 		<main role="main">
-			<!-- Start Intro -->
+
+			<!-- ============ INTRO ============ -->
 			<div id="fh5co-intro">
 				<div class="container">
+					<a href="projects.html#mechanical" class="project-back">&larr; All projects</a>
 					<h1>WLF Hydroponic Labs</h1>
-						<div class="row">
-							<div class="col-md-6 col-md-push-6 fh5co-intro-sub">
-								<p>WLF Hydroponics is a community-driven organization focused on building custom growing systems for community food distribution. As part of the team, I contributed to the system design for the first iteration of an automated indoor farming system, including piping layout, safety bracketing, structural construction, and room modeling.</p>
+					<p class="project-sub">Automated indoor growing system for community food distribution</p>
+					<div class="row">
+						<div class="col-md-6 col-md-push-6 fh5co-intro-sub">
+							<p>WLF Hydroponics builds custom growing systems for community food distribution. On a three-person team, I helped design and build the first iteration of an automated indoor farm, from an empty room to a working system.</p>
+							<p>I owned the room model, the piping layout, the seismic safety bracketing, and the structural frame, and shared fabrication and sourcing with the team.</p>
 						</div>
+						<div class="col-md-6 col-md-pull-6">
+							<ul class="project-facts">
+								<li><strong>Role</strong> Mechanical design and fabrication</li>
+								<li><strong>Team</strong> 3 people, WLF Hydroponics</li>
+								<!-- TODO: add the date, e.g. <li><strong>When</strong> Fall 2025</li> -->
+								<li><strong>Tools</strong> SolidWorks (piping, sheet metal, McMaster-Carr add-ins), 3D printing, metal shop</li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
-			<!-- End Intro -->
+			<!-- ============ END INTRO ============ -->
 
-				<!-- Start SLIDER -->
-				<div id="js-fh5co-slider">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="owl-carousel owl-carousel-fullwidth">
-								    <div class="item"><img src="wlf_images/system_model_4_3.png" alt="image"></div>
-								    <div class="item"><img src="wlf_images/system_4_3.jpg" alt="image"></div>
-								    <div class="item"><img src="wlf_images/rafter_bracket_4_3.jpg" alt="image"></div>
-								    <div class="item"><img src="wlf_images/rafter_bracket_irl_4_3.jpg" alt="image"></div>
-								    <div class="item"><img src="wlf_images/renderdosing_4_3.jpg" alt="image"></div>
-								    <div class="item"><img src="wlf_images/team_photo_4_3.png" alt="image"></div>
-								 
-								</div>
+			<!-- ============ GALLERY ============ -->
+			<div id="js-fh5co-slider">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="owl-carousel owl-carousel-fullwidth">
+								<div class="item"><img src="wlf_images/system_model_4_3.png" alt="SolidWorks model of the full hydroponic system"></div>
+								<div class="item"><img src="wlf_images/system_4_3.jpg" alt="Built hydroponic system in the lab"></div>
+								<div class="item"><img src="wlf_images/rafter_bracket_4_3.jpg" alt="CAD model of the seismic rafter bracket"></div>
+								<div class="item"><img src="wlf_images/rafter_bracket_irl_4_3.jpg" alt="Fabricated rafter bracket installed"></div>
+								<div class="item"><img src="wlf_images/renderdosing_4_3.jpg" alt="Render of the dosing system design"></div>
+								<div class="item"><img src="wlf_images/team_photo_4_3.png" alt="WLF Hydroponics team"></div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<!-- End SLIDER -->
-
-
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-					</div>
-					<div class="fh5co-spacer fh5co-spacer-sm"></div>
-					<div class="col-md-4 col-sm-6">
-						<h2 class="h4">Mechanical Design</h2>
-						<p>Design and construction of a hydroponics piping network using SolidWorks, including the piping library add-in, sheet metal tools, and the McMaster-Carr add-in for fastener modeling in assemblies.</p>
-					</div>
-					<div class="col-md-4 col-sm-6">
-						<h2 class="h4">Rapid Prototyping</h2>
-						<p>Iterative design and modeling of key system components, including sensor models and the dosing system, through a rapid prototyping process.</p>
-					</div>
-					<div class="col-md-4 col-sm-6">
-						<h2 class="h4">Metal Fabrication</h2>
-						<p>Hands-on metalworking and machining, including table saw cutting, filing, sheet metal forming, and drill pressing.</p>
-					</div>
-				</div>
 			</div>
-
-					<div class="fh5co-spacer fh5co-spacer-sm"></div>
-
-			<!-- Start Unordered List -->
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-					</div>
-					<h3>Key Achievements</h3>
-					<ul>
-						<li>Designed a 3D-printed electronics enclosure in SOLIDWORKS with PCB mounting and cable routing for humidity protection</li>
-						<li>Built a hydroponic piping network with 10+ valves and pumps, integrating safety controls to prevent leaks and over-pressure failures</li>
-						<li>Fabricated a sheet metal mounting system meeting anti-vibration and seismic safety requirements</li>
-						<li>Constructed an aluminum extrusion frame and gutter assembly forming the primary structural support for the grow system</li>
-						<li>Developed dosing system model and documentation for future implementation</li>
-					</ul>
-				</li>
-			</ul>
-				</div>
-				<!-- End Unordered List -->
+			<!-- ============ END GALLERY ============ -->
 
 			<div class="fh5co-spacer fh5co-spacer-sm"></div>
 
-					<!-- Image Alignment -->
-					<div class="container">
+			<!-- ============ HIGHLIGHTS ============ -->
+			<div class="container project-section">
+				<div class="row">
 					<div class="col-md-12">
-
-						<img src="wlf_images/room_model_450W.jpg" alt="Images" class="fh5co-align-left img-responsive">
-						<p>WLF Hydroponics is a student-led project within a sustainable energy school focused on building an automated indoor garden system. 
-						As part of a three-person team, each member carried significant responsibility across design, fabrication, and sourcing.
-						Starting from rough initial sketches, the team had to develop the full system from the ground up with no established dimensions, materials plan, or construction approach. 
-						I began by modeling the designated room in our engineering building to map out the available space, including placement for a plant nursery, reservoir containers, and emergency drain access.
-						Piping design followed using SolidWorks built-in libraries to lay out connectors, elbows, and pipe lengths, along with producing drawings for construction reference. 
-						With limited funding and a sustainability mandate, component sourcing required careful decision matrices and coordination with the finance team to validate every design choice while prioritizing local suppliers.</p>
-
-						<img src="wlf_images/ibeam_drawing_small.jpg" alt="Images" class="fh5co-align-right img-responsive">
-						<p>Much of the hardware was prototyped through 3D printing, requiring detailed modeling of all electronic components and sensors to ensure proper fit within enclosures. 
-						   The most physically demanding challenge came during metal fabrication, where an 11-gauge sheet metal bracket needed to be bent without a press brake. Working alongside the machinist for several hours,
-						   we produced a bracket that met the seismic safety requirements set by SFU's Faculty of Applied Science.
-						   The project reinforced skills in CAD modeling, piping design, prototyping, and hands-on fabrication under real constraints. 
-						   The smaller team structure demanded greater individual ownership and pushed practical problem-solving in ways larger teams often don't.</p>
-						
+						<h2 class="fh5co-uppercase-heading-sm">Highlights</h2>
+						<ul>
+							<li>Built a hydroponic piping network with 10+ valves and pumps, with safety controls to prevent leaks and over-pressure failures</li>
+							<li>Fabricated an 11-gauge sheet metal bracket without a press brake that met SFU Faculty of Applied Science seismic and anti-vibration requirements</li>
+							<li>Built the aluminum extrusion frame and gutter assembly that forms the main structure of the grow system</li>
+							<li>Designed a 3D-printed electronics enclosure with PCB mounts and cable routing to protect against humidity</li>
+							<li>Modeled and documented a dosing system for future implementation</li>
+						</ul>
 					</div>
 				</div>
-				<!-- Image Alignment -->
+			</div>
+			<!-- ============ END HIGHLIGHTS ============ -->
 
-				<div class="fh5co-spacer fh5co-spacer-md"></div>
+			<div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+			<!-- ============ DESIGN PROCESS ============ -->
+			<div class="container project-section">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="fh5co-uppercase-heading-sm">Design Process</h2>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-5">
+						<figure class="project-figure">
+							<img src="wlf_images/room_model_450W.jpg" alt="SolidWorks model of the lab room layout" class="img-responsive">
+							<figcaption>Room model used to plan the system layout</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7">
+						<h3 class="h4">1. Starting from a blank room</h3>
+						<p>The team began with rough sketches and no set dimensions, materials, or build plan. I modeled the designated room in our engineering building to map the usable space, including the plant nursery, reservoir containers, and emergency drain access.</p>
+						<p>I then laid out the piping with SolidWorks' built-in libraries for connectors, elbows, and pipe runs, and produced drawings for construction. With a limited budget and a sustainability mandate, every part went through a decision matrix and a review with the finance team, with local suppliers preferred.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5 col-md-push-7">
+						<figure class="project-figure">
+							<img src="wlf_images/ibeam_drawing_small.jpg" alt="Engineering drawing of the support bracket" class="img-responsive">
+							<figcaption>Drawing for the seismic support bracket</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7 col-md-pull-5">
+						<h3 class="h4">2. Prototyping and fabrication</h3>
+						<p>Much of the hardware was prototyped with 3D printing, which meant modeling every sensor and electronic part so it would fit its enclosure.</p>
+						<p>The hardest part was physical. An 11-gauge sheet metal bracket had to be bent without a press brake. Working with the machinist over several hours, we produced a bracket that met SFU's seismic safety requirements.</p>
+						<p>With only three people, each of us owned large parts of the system. That pushed me to solve problems hands-on in ways a larger team often doesn't.</p>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END DESIGN PROCESS ============ -->
+
+			<!-- TODO (optional): a photo of the finished system running with plants in it would be a strong last image. -->
+
+			<!-- ============ SKILLS ============ -->
+			<div class="container project-section">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="fh5co-uppercase-heading-sm">Skills Used</h2>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<h3 class="h4">Mechanical Design</h3>
+						<p>Piping network design in SolidWorks using the piping library, sheet metal tools, and the McMaster-Carr add-in for fasteners.</p>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<h3 class="h4">Rapid Prototyping</h3>
+						<p>Iterative modeling and 3D printing of sensor mounts, enclosures, and the dosing system.</p>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<h3 class="h4">Metal Fabrication</h3>
+						<p>Cutting, filing, sheet metal forming, and drill pressing alongside the machinist.</p>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END SKILLS ============ -->
+
+			<div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+			<div class="container">
+				<a href="projects.html#mechanical" class="project-back">&larr; All projects</a>
+			</div>
+
+			<div class="fh5co-spacer fh5co-spacer-md"></div>
 
 		</main>
 
@@ -206,23 +237,22 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 				<div class="row">
 					<div class="col-md-push-6 col-md-6">
 						<ul class="fh5co-footer-social">
-							<li><a href="#"> </a></li>
+							<li><a href="mailto:marlongeorgebuchanan@gmail.com">Email</a></li>
 							<li><a href="https://www.linkedin.com/in/marlongb/">LinkedIn</a></li>
 							<li><a href="https://github.com/marlongbs-git">GitHub</a></li>
 						</ul>
 						<p class="fh5co-copyright">
-							<small>(c) 2026 </a> Marlon Buchanan </a>. All Rights Reserved. <br>
-Designed by: <a href="http://freehtml5.co/">freehtml5.co</a> 
+							<small>&copy; 2026 Marlon Buchanan. All Rights Reserved.<br>
+							Designed with: <a href="http://freehtml5.co/">freehtml5.co</a></small>
 						</p>
 					</div>
 				</div>
 			</div>
 		</footer>
-		
+
 		<!-- Go To Top -->
 		<a href="#" class="fh5co-gotop"><i class="ti-shift-left"></i></a>
-		
-			
+
 		<!-- jQuery -->
 		<script src="js/jquery-1.10.2.min.js"></script>
 		<!-- jQuery Easing -->
@@ -240,10 +270,6 @@ Designed by: <a href="http://freehtml5.co/">freehtml5.co</a>
 		<!-- Velocity -->
 		<script src="js/velocity.min.js"></script>
 
-		<!-- Google Map -->
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
-		<script src="js/google_map.js"></script>
-		
 		<!-- Main JS -->
 		<script src="js/main.js"></script>
 

@@ -122,6 +122,19 @@
 			</div>
 			<!-- ============ END INTRO ============ -->
 
+			<!-- ============ DEMO VIDEO ============ -->
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<figure class="project-figure" style="max-width:560px;margin:0 auto 30px">
+							<video src="edmond_images/edmond_demo.mp4" poster="edmond_images/edmond_demo_poster.jpg" autoplay muted loop playsinline style="width:100%;display:block"></video>
+							<figcaption>Edmond recovering from pushes. The bench supply shows the motor current spike as he corrects.</figcaption>
+						</figure>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END DEMO VIDEO ============ -->
+
 			<!-- ============ GALLERY ============ -->
 			<div id="js-fh5co-slider">
 				<div class="container">
@@ -129,9 +142,9 @@
 						<div class="col-md-12">
 							<div class="owl-carousel owl-carousel-fullwidth">
 								<div class="item"><img src="edmond_images/edmond_4_3.jpg" alt="Edmond balancing in front of a bench power supply"></div>
-								<div class="item"><img src="edmond_images/edmond_exploded2.png" alt="Exploded CAD view of Edmond's chassis"></div>
-								<div class="item"><img src="edmond_images/edmond_electronicsbringup.jpg" alt="Edmond's electronics during bring-up"></div>
-								<div class="item"><img src="edmond_images/front.png" alt="Front view of Edmond's chassis in CAD"></div>
+								<div class="item"><img src="edmond_images/edmond_exploded2.png" alt="Exploded SolidWorks view of Edmond's chassis, electronics, and drivetrain"></div>
+								<div class="item"><img src="edmond_images/edmond_legassembly.jpg" alt="Leg and motor assembly with the Nucleo and IMU perfboard"></div>
+								<div class="item"><img src="edmond_images/edmond_electronicsbringup.jpg" alt="Electronics bring-up on a breadboard with an oscilloscope"></div>
 							</div>
 						</div>
 					</div>
@@ -146,10 +159,8 @@
 				<div class="row">
 					<div class="col-md-12">
 						<h2 class="fh5co-uppercase-heading-sm">Highlights</h2>
-						<!-- TODO (strongly recommended): a 10-15 second clip of Edmond recovering from a push. Save it as edmond_images/edmond_demo.mp4 and put this right under the intro:
-						<video src="edmond_images/edmond_demo.mp4" autoplay muted loop playsinline style="width:100%;margin-bottom:20px"></video> -->
 						<ul>
-							<li>Balances unaided and recovers from small pushes, with a discrete LQR controller on the full state [x, &#7819;, &theta;, &theta;&#775;]</li>
+							<li>Balances unaided and recovers from pushes, with a discrete LQR controller on the full state [x, &#7819;, &theta;, &theta;&#775;]</li>
 							<li>Built the plant model from first principles: a cart-pendulum linearized about upright, discretized, and solved with <code>dlqr</code> in MATLAB</li>
 							<li>Pulled real masses, center of mass, and inertia from SolidWorks mass properties instead of guessing them</li>
 							<li>Fused MPU6050 accelerometer and gyro data with a complementary filter, and combined it with quadrature encoder data each control cycle</li>
@@ -179,47 +190,67 @@
 						</figure>
 					</div>
 					<div class="col-md-7">
-						<h3 class="h4">1. Modeling and LQR design</h3>
-						<p>I modeled Edmond as a cart-pendulum and linearized it about the upright position. Then I discretized the model and designed the gain matrix with <code>dlqr</code> in MATLAB, verifying it in Simulink before touching hardware.</p>
-						<p>The Q matrix weights tilt angle and angular rate far above wheel position, so Edmond prioritizes staying upright. R penalizes motor effort to keep the motors out of saturation.</p>
+						<h3 class="h4">1. Modeling the plant</h3>
+						<p>I modeled Edmond as a cart-pendulum: the wheels are the cart, and the body is the pendulum. I linearized the equations of motion about upright and filled in the real physical parameters from the SolidWorks mass-properties report.</p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-5 col-md-push-7">
 						<figure class="project-figure">
-							<img src="edmond_images/LQR.png" alt="LQR controller design in MATLAB" class="img-responsive">
-							<figcaption>LQR design in MATLAB/Simulink</figcaption>
+							<img src="edmond_images/LQR.png" alt="LQR state feedback block diagram" class="img-responsive">
+							<figcaption>LQR state feedback</figcaption>
+						</figure>
+						<figure class="project-figure">
+							<img src="edmond_images/edmond_simulink.png" alt="Simulink model of the discrete closed loop" class="img-responsive">
+							<figcaption>Discrete closed loop in Simulink</figcaption>
 						</figure>
 					</div>
 					<div class="col-md-7 col-md-pull-5">
-						<h3 class="h4">2. The control loop</h3>
-						<p>Every cycle, the firmware reads the IMU over I2C and fuses it with a complementary filter to get pitch and pitch rate. It reads the encoders for wheel position and velocity, then computes <em>u&nbsp;=&nbsp;&minus;Kx</em>.</p>
-						<p>A motor model converts that force into a PWM duty cycle for the H-bridge. If tilt passes a threshold, the motors cut out and the OLED switches to a fallen face.</p>
+						<h3 class="h4">2. LQR design and simulation</h3>
+						<p>I discretized the model and designed the gain matrix with <code>dlqr</code>, then simulated the closed loop in Simulink before touching hardware.</p>
+						<p>The Q matrix weights tilt angle and angular rate far above wheel position, so Edmond prioritizes staying upright. R penalizes motor effort to keep the motors out of saturation.</p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-5">
 						<figure class="project-figure">
-							<img src="edmond_images/edmond_electronicsbringup.jpg" alt="Edmond electronics bring-up on the bench" class="img-responsive">
-							<figcaption>Electronics bring-up</figcaption>
+							<img src="edmond_images/edmond_control_loop.png" alt="Flowchart of Edmond's firmware control loop" class="img-responsive">
+							<figcaption>One cycle of the firmware control loop</figcaption>
 						</figure>
 					</div>
 					<div class="col-md-7">
-						<h3 class="h4">3. Bring-up and debugging</h3>
-						<p>The IMU and OLED share one I2C bus. Loose connectors caused intermittent I2C failures, which taught me that a silent read failure is worse than a loud one. I added a bus-recovery routine and soldered the final build.</p>
-						<p>Other lessons came straight from the hardware. A degrees-versus-radians mismatch is the fastest way to saturate a motor, and deadband, back-EMF spikes, and the power supply all show up in the control loop.</p>
+						<h3 class="h4">3. The control loop</h3>
+						<p>Every cycle, the firmware reads the IMU over I2C and fuses it with a complementary filter to get pitch and pitch rate. It reads the encoder timer for wheel position and velocity and packs everything into one <code>RobotState</code> struct.</p>
+						<p>If Edmond has tipped past the threshold, the motors cut out and the OLED shows a fallen face. Otherwise the firmware computes <em>u&nbsp;=&nbsp;&minus;Kx</em>, converts that force to a PWM duty cycle with the motor model and supply voltage, and drives the H-bridge.</p>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-5 col-md-push-7">
 						<figure class="project-figure">
-							<img src="edmond_images/edmond_exploded2.png" alt="Exploded view of Edmond's 3D-printed chassis" class="img-responsive">
-							<figcaption>3D-printed PLA chassis</figcaption>
+							<img src="edmond_images/edmond_electronicsbringup.jpg" alt="Edmond electronics bring-up on the bench" class="img-responsive">
+							<figcaption>Breadboard bring-up with the scope on the I2C bus</figcaption>
 						</figure>
 					</div>
 					<div class="col-md-7 col-md-pull-5">
-						<h3 class="h4">4. Mechanical design</h3>
-						<p>The PLA chassis holds the two geared motors, the electronics deck, and the OLED. I designed it in SolidWorks, which also gave the controller its physical parameters.</p>
+						<h3 class="h4">4. Bring-up and debugging</h3>
+						<p>I brought the electronics up on a breadboard first, probing the bus with an oscilloscope. The IMU and OLED share one I2C bus, and loose connectors caused intermittent failures. That taught me a silent read failure is worse than a loud one. I added a bus-recovery routine and soldered the final build onto perfboard.</p>
+						<p>Other lessons came straight from the hardware. A degrees-versus-radians mismatch is the fastest way to saturate a motor, and deadband, back-EMF spikes, and the power supply all show up in the control loop.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5">
+						<figure class="project-figure">
+							<img src="edmond_images/edmond_legassembly.jpg" alt="Edmond leg and motor assembly during the build" class="img-responsive">
+							<figcaption>Leg assembly with the soldered electronics deck</figcaption>
+						</figure>
+						<figure class="project-figure">
+							<img src="edmond_images/edmond_exploded2.png" alt="Exploded view of Edmond's chassis" class="img-responsive">
+							<figcaption>Exploded SolidWorks assembly</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7">
+						<h3 class="h4">5. Mechanical design</h3>
+						<p>The PLA chassis has two motor legs and an upper deck carrying the soldered Nucleo and IMU board, the motor driver, and the OLED face. I designed it in SolidWorks, which also gave the controller its physical parameters.</p>
 						<h3 class="h4">Next</h3>
 						<p>An extended Kalman filter for attitude estimation, battery power, and a custom PCB to replace the hand-wired electronics.</p>
 					</div>

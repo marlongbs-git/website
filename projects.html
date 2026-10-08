@@ -1,12 +1,3 @@
-<!-- 
-//////////////////////////////////////////////////////
-
-FREE HTML5 TEMPLATE 
-DESIGNED & DEVELOPED by FREEHTML5.CO
-
-//////////////////////////////////////////////////////
- -->
-
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -15,24 +6,23 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Marlon's Portfolio &mdash; Projects</title>
+	<title>Marlon Buchanan &mdash; Projects</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
-  	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
-  	<meta name="author" content="FREEHTML5.CO" />
+	<meta name="description" content="Hardware and mechanical design projects by Marlon Buchanan: embedded control, PCB design and bring-up, power electronics, and design team work." />
+	<meta name="keywords" content="hardware design, PCB design, embedded systems, STM32, power electronics, MPPT, mechanical design, SFU" />
+	<meta name="author" content="Marlon Buchanan" />
 
-  	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+	<!-- Link previews (LinkedIn, email, Slack) -->
+	<meta property="og:title" content="Marlon Buchanan — Hardware Design Projects"/>
+	<meta property="og:image" content="https://marlongbs-git.github.io/website/plant_images2/systempicture_4_3.jpg"/>
+	<meta property="og:url" content="https://marlongbs-git.github.io/website/projects.html"/>
+	<meta property="og:site_name" content="Marlon Buchanan"/>
+	<meta property="og:description" content="Embedded control, PCB design and bring-up, power electronics, and mechanical design projects."/>
+	<meta name="twitter:title" content="Marlon Buchanan — Hardware Design Projects" />
+	<meta name="twitter:image" content="https://marlongbs-git.github.io/website/plant_images2/systempicture_4_3.jpg" />
+	<meta name="twitter:url" content="https://marlongbs-git.github.io/website/projects.html" />
+	<meta name="twitter:card" content="summary_large_image" />
 
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
 
 	<!-- Google Webfont -->
@@ -53,7 +43,14 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 	<!-- Theme Style -->
 	<link rel="stylesheet" href="css/style.css">
 
-	
+	<!-- Section jump links -->
+	<style>
+		.project-jump { margin: 0 0 10px 0; padding: 0; list-style: none; }
+		.project-jump li { display: inline-block; margin-right: 20px; }
+		.project-jump a { text-transform: uppercase; letter-spacing: 1px; font-size: 13px; }
+		.project-section { scroll-margin-top: 90px; }
+	</style>
+
 	<!-- FOR IE9 below -->
 	<!--[if lte IE 9]>
 	<script src="js/modernizr-2.6.2.min.js"></script>
@@ -62,34 +59,39 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 
 	</head>
 	<body>
-		
+
 		<!-- Header -->
 		<header id="fh5co-header" role="banner">
 			<div class="container">
 				<!-- Logo -->
 				<div id="fh5co-logo">
 					<a href="index.html">
-						<img src="images/logo.png" alt="Work Logo">
+						<img src="images/logo.png" alt="Marlon Buchanan logo">
 					</a>
-
 				</div>
 				<!-- Logo -->
-				
+
 				<!-- Mobile Toggle Menu Button -->
 				<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-				
+
 				<!-- Main Nav -->
 				<div id="fh5co-main-nav">
 					<nav id="fh5co-nav" role="navigation">
 						<ul>
-							<li class="fh5co-active">
+							<li>
 								<a href="index.html">Home</a>
 							</li>
-							<li>
+							<li class="fh5co-active">
 								<a href="projects.html">Projects</a>
 							</li>
+							<!-- Uncomment once these exist:
 							<li>
+								<a href="photography.html">Photography</a>
 							</li>
+							<li>
+								<a href="Marlon_Buchanan_Resume.pdf" target="_blank">Resume</a>
+							</li>
+							-->
 						</ul>
 					</nav>
 				</div>
@@ -103,37 +105,121 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 			<div id="fh5co-intro">
 				<div class="container">
 					<h1>Projects</h1>
-						<div class="row">
-							<div class="col-md-6 col-md-push-6 fh5co-intro-sub">
-								<p>These projects span sustainable energy, mechanical design, and electric hardware — each one a problem I wanted to solve or a skill I needed to build. Click into any project for the full breakdown.</p>
+					<div class="row">
+						<div class="col-md-6 col-md-push-6 fh5co-intro-sub">
+							<p>Hardware projects first: embedded control, PCB design, and board bring-up. Below that is my mechanical and design team work. Click into any project for the full breakdown.</p>
+							<ul class="project-jump">
+								<li><a href="#hardware">Hardware</a></li>
+								<li><a href="#mechanical">Mechanical + Design Teams</a></li>
+							</ul>
 						</div>
+					</div>
 				</div>
 			</div>
 			<!-- End Intro -->
 
-			
-			<!-- Start Work -->
+
 			<div id="fh5co-work">
 				<div class="container">
+
+					<!-- ============ HARDWARE ============ -->
+					<h2 id="hardware" class="fh5co-uppercase-heading-sm project-section">Hardware</h2>
+					<div class="fh5co-spacer fh5co-spacer-xs"></div>
 					<div class="row">
+
+						<!-- Edmond (PLACEHOLDER: create edmond.html + image) -->
 						<div class="col-md-6 col-sm-6 col-xs-6 fh5co-work-wrap">
-							<a href="PLANT.html" class="fh5co-work-item js-fh5co-work-item">
-								<img src="plant_images2/systempicture_4_3.jpg" alt="Image" class="img-responsive">
+							<a href="edmond.html" class="fh5co-work-item js-fh5co-work-item">
+								<img src="edmond_images/edmond_4_3.jpg" alt="Edmond self-balancing robot" class="img-responsive">
 								<div class="fh5co-overlay-bg js-fh5co-overlay-bg"></div>
 								<div class="fh5co-overlay-text js-fh5co-overlay-text">
-									<h2>Dynamic Solar Shading System with Maximum Power Point Tracking</h2>
+									<h2>Edmond: Self-Balancing Robot</h2>
 									<ul class="fh5co-categories">
-										<li>PCB Design</li>
-										<li>Schematic Capture</li>
-										<li>Hardware Debugging</li>
+										<li>STM32</li>
+										<li>Control Theory</li>
+										<li>MATLAB/Simulink</li>
 									</ul>
 								</div>
 							</a>
-						</div>						
+						</div>
+
+						<!-- MPPT PCB (existing page) -->
+						<div class="col-md-6 col-sm-6 col-xs-6 fh5co-work-wrap">
+							<a href="PLANT.html" class="fh5co-work-item js-fh5co-work-item">
+								<img src="plant_images2/systempicture_4_3.jpg" alt="Maximum power point tracking PCB" class="img-responsive">
+								<div class="fh5co-overlay-bg js-fh5co-overlay-bg"></div>
+								<div class="fh5co-overlay-text js-fh5co-overlay-text">
+									<h2>Maximum Power Point Tracking PCB</h2>
+									<ul class="fh5co-categories">
+										<li>Power Electronics</li>
+										<li>Schematic Capture</li>
+										<li>PCB Bring-Up</li>
+									</ul>
+								</div>
+							</a>
+						</div>
+
+						<!-- Battery Charger (PLACEHOLDER: create charger.html + image) -->
+						<div class="col-md-6 col-sm-6 col-xs-6 fh5co-work-wrap">
+							<a href="charger.html" class="fh5co-work-item js-fh5co-work-item">
+								<img src="charger_images/charger_4_3.jpg" alt="18650 lithium battery charger board" class="img-responsive">
+								<div class="fh5co-overlay-bg js-fh5co-overlay-bg"></div>
+								<div class="fh5co-overlay-text js-fh5co-overlay-text">
+									<h2>18650 Lithium Battery Charger Board</h2>
+									<ul class="fh5co-categories">
+										<li>PCB Bring-Up</li>
+										<li>Battery Charging</li>
+										<li>Electronic Assembly</li>
+									</ul>
+								</div>
+							</a>
+						</div>
+
+						<!-- STM32F3 Breakout (PLACEHOLDER: create stm32.html + image; confirm tags) -->
+						<div class="col-md-6 col-sm-6 col-xs-6 fh5co-work-wrap">
+							<a href="stm32.html" class="fh5co-work-item js-fh5co-work-item">
+								<img src="stm32_images/stm32_4_3.jpg" alt="STM32F3 breakout board with sensing" class="img-responsive">
+								<div class="fh5co-overlay-bg js-fh5co-overlay-bg"></div>
+								<div class="fh5co-overlay-text js-fh5co-overlay-text">
+									<h2>STM32F3 Breakout Board with Sensing</h2>
+									<ul class="fh5co-categories">
+										<li>STM32</li>
+										<li>Schematic Capture</li>
+										<li>Sensor Integration</li>
+									</ul>
+								</div>
+							</a>
+						</div>
+
+						<!-- Solar Cell Testing Fixture (existing page) -->
+						<div class="col-md-6 col-sm-6 col-xs-6 fh5co-work-wrap">
+							<a href="spin.html" class="fh5co-work-item js-fh5co-work-item">
+								<img src="spin_images/spin_project_4_3.jpg" alt="Solar cell testing fixture" class="img-responsive">
+								<div class="fh5co-overlay-bg js-fh5co-overlay-bg"></div>
+								<div class="fh5co-overlay-text js-fh5co-overlay-text">
+									<h2>Solar Cell Testing Fixture</h2>
+									<ul class="fh5co-categories">
+										<li>Arduino</li>
+										<li>Hardware Debugging</li>
+										<li>Rapid Prototyping</li>
+									</ul>
+								</div>
+							</a>
+						</div>
+
+					</div>
+					<!-- ============ END HARDWARE ============ -->
+
+					<div class="fh5co-spacer fh5co-spacer-md"></div>
+
+					<!-- ============ MECHANICAL + DESIGN TEAMS ============ -->
+					<h2 id="mechanical" class="fh5co-uppercase-heading-sm project-section">Mechanical + Design Teams</h2>
+					<div class="fh5co-spacer fh5co-spacer-xs"></div>
+					<div class="row">
 
 						<div class="col-md-6 col-sm-6 col-xs-6 fh5co-work-wrap">
 							<a href="WLF.html" class="fh5co-work-item js-fh5co-work-item">
-								<img src="wlf_images/system_model_4_3.png" alt="Image" class="img-responsive">
+								<img src="wlf_images/system_model_4_3.png" alt="WLF Hydroponic Labs system model" class="img-responsive">
 								<div class="fh5co-overlay-bg js-fh5co-overlay-bg"></div>
 								<div class="fh5co-overlay-text js-fh5co-overlay-text">
 									<h2>WLF Hydroponic Labs</h2>
@@ -144,11 +230,11 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 									</ul>
 								</div>
 							</a>
-						</div>						
+						</div>
 
 						<div class="col-md-6 col-sm-6 col-xs-6 fh5co-work-wrap">
 							<a href="Phantom.html" class="fh5co-work-item js-fh5co-work-item">
-								<img src="phantom_images/phantomcar_4_3.png" alt="Image" class="img-responsive">
+								<img src="phantom_images/phantomcar_4_3.png" alt="SFU Team Phantom Formula SAE Electric car" class="img-responsive">
 								<div class="fh5co-overlay-bg js-fh5co-overlay-bg"></div>
 								<div class="fh5co-overlay-text js-fh5co-overlay-text">
 									<h2>SFU Team Phantom Formula SAE Electric</h2>
@@ -159,11 +245,11 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 									</ul>
 								</div>
 							</a>
-						</div>						
+						</div>
 
 						<div class="col-md-6 col-sm-6 col-xs-6 fh5co-work-wrap">
 							<a href="wict.html" class="fh5co-work-item js-fh5co-work-item">
-								<img src="wict_images/dialux_floor_4_3.png" alt="Image" class="img-responsive">
+								<img src="wict_images/dialux_floor_4_3.png" alt="WiCT building design floor plan" class="img-responsive">
 								<div class="fh5co-overlay-bg js-fh5co-overlay-bg"></div>
 								<div class="fh5co-overlay-text js-fh5co-overlay-text">
 									<h2>Women in Clean Tech (WiCT) ASHRAE Building Design Competition</h2>
@@ -176,30 +262,14 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 							</a>
 						</div>
 
-						<div class="col-md-6 col-sm-6 col-xs-6 fh5co-work-wrap">
-							<a href="spin.html" class="fh5co-work-item js-fh5co-work-item">
-								<img src="spin_images/spin_project_4_3.jpg" alt="Image" class="img-responsive">
-								<div class="fh5co-overlay-bg js-fh5co-overlay-bg"></div>
-								<div class="fh5co-overlay-text js-fh5co-overlay-text">
-									<h2>Solar Cell Testing Fixture </h2>
-									<ul class="fh5co-categories">
-										<li>Mechanical Design</li>
-										<li>Hardware Debugging</li>
-										<li>Rapid Prototyping</li>
-									</ul>
-								</div>
-							</a>
-						</div>						
-
-						
 					</div>
+					<!-- ============ END MECHANICAL ============ -->
 
 				</div>
 			</div>
 			<!-- End Work -->
 
 			<div class="fh5co-spacer fh5co-spacer-md"></div>
-		
 
 		</main>
 
@@ -208,13 +278,13 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 				<div class="row">
 					<div class="col-md-push-6 col-md-6">
 						<ul class="fh5co-footer-social">
-							<li><a href="#"> </a></li>
+							<li><a href="mailto:marlongeorgebuchanan@gmail.com">Email</a></li>
 							<li><a href="https://www.linkedin.com/in/marlongb/">LinkedIn</a></li>
 							<li><a href="https://github.com/marlongbs-git">GitHub</a></li>
 						</ul>
 						<p class="fh5co-copyright">
-							<small>(c) 2026 </a> Marlon Buchanan </a>. All Rights Reserved. <br>
-Designed by: <a href="http://freehtml5.co/">freehtml5.co</a> 
+							<small>&copy; 2026 Marlon Buchanan. All Rights Reserved.<br>
+							Designed with: <a href="http://freehtml5.co/">freehtml5.co</a></small>
 						</p>
 					</div>
 				</div>
@@ -223,8 +293,7 @@ Designed by: <a href="http://freehtml5.co/">freehtml5.co</a>
 
 		<!-- Go To Top -->
 		<a href="#" class="fh5co-gotop"><i class="ti-shift-left"></i></a>
-		
-			
+
 		<!-- jQuery -->
 		<script src="js/jquery-1.10.2.min.js"></script>
 		<!-- jQuery Easing -->
@@ -242,10 +311,6 @@ Designed by: <a href="http://freehtml5.co/">freehtml5.co</a>
 		<!-- Velocity -->
 		<script src="js/velocity.min.js"></script>
 
-		<!-- Google Map -->
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
-		<script src="js/google_map.js"></script>
-		
 		<!-- Main JS -->
 		<script src="js/main.js"></script>
 

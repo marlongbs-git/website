@@ -54,6 +54,9 @@
 		.project-figure img { width: 100%; }
 		.project-figure figcaption { font-size: 13px; opacity: .7; margin-top: 8px; }
 		.project-section h2 { margin-top: 0; }
+		/* Every carousel slide is 4:3, whatever the image, so the slider never jumps in height */
+		.owl-carousel-fullwidth .item img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: #fff; }
+		.gallery-links { margin-top: 35px; }
 	</style>
 
 	<!--[if lte IE 9]>
@@ -141,7 +144,7 @@
 			<!-- ============ END GALLERY ============ -->
 
 			<div class="container">
-				<p class="text-center" style="margin-top:10px"><a href="stm32_images/stm32_schematic_full.png" class="image-popup">View the full schematic</a> &nbsp;&middot;&nbsp; <a href="stm32_images/stm32_schematic.pdf" target="_blank">Download PDF</a></p>
+				<p class="text-center gallery-links"><a href="stm32_images/stm32_schematic_full.png" class="image-popup">View the full schematic</a> &nbsp;&middot;&nbsp; <a href="stm32_images/stm32_schematic.pdf" target="_blank">Download PDF</a></p>
 			</div>
 
 			<div class="fh5co-spacer fh5co-spacer-sm"></div>

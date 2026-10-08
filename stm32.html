@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>STM32F4 Breakout Board with IMU &mdash; Marlon Buchanan</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="A 4-layer STM32F411 board with an MPU-6050 IMU and USB, taken from schematic to manufacturing outputs. My first PCB and the foundation for every board after it." />
+	<meta name="keywords" content="STM32F411, PCB design, Altium Designer, 4-layer PCB, impedance control, USB differential pair, MPU-6050, JLCPCB" />
+	<meta name="author" content="Marlon Buchanan" />
+
+	<!-- Link previews (LinkedIn, email, Slack) -->
+	<meta property="og:title" content="STM32F4 Breakout Board with IMU — Marlon Buchanan"/>
+	<meta property="og:image" content="https://marlongbs-git.github.io/website/stm32_images/stm32_4_3.jpg"/>
+	<meta property="og:url" content="https://marlongbs-git.github.io/website/stm32.html"/>
+	<meta property="og:site_name" content="Marlon Buchanan"/>
+	<meta property="og:description" content="A 4-layer STM32F411 board with an MPU-6050 IMU and USB, taken from schematic to manufacturing outputs. My first PCB and the foundation for every board after it."/>
+	<meta name="twitter:title" content="STM32F4 Breakout Board with IMU — Marlon Buchanan" />
+	<meta name="twitter:image" content="https://marlongbs-git.github.io/website/stm32_images/stm32_4_3.jpg" />
+	<meta name="twitter:url" content="https://marlongbs-git.github.io/website/stm32.html" />
+	<meta name="twitter:card" content="summary_large_image" />
+
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<!-- Google Webfont -->
+	<link href='https://fonts.googleapis.com/css?family=PT+Mono' rel='stylesheet' type='text/css'>
+	<!-- Themify Icons -->
+	<link rel="stylesheet" href="css/themify-icons.css">
+	<!-- Icomoon Icons -->
+	<link rel="stylesheet" href="css/icomoon-icons.css">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<!-- Easy Responsive Tabs -->
+	<link rel="stylesheet" href="css/easy-responsive-tabs.css">
+	<!-- Theme Style -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Project page helpers (same block on every project page) -->
+	<style>
+		.project-back { display: inline-block; margin-bottom: 10px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+		.project-sub { font-size: 16px; opacity: .75; margin-top: -10px; }
+		.project-facts { margin: 0; padding: 0; list-style: none; }
+		.project-facts li { margin-bottom: 8px; }
+		.project-facts strong { display: inline-block; min-width: 70px; }
+		.project-figure { margin: 0 0 30px 0; }
+		.project-figure img { width: 100%; }
+		.project-figure figcaption { font-size: 13px; opacity: .7; margin-top: 8px; }
+		.project-section h2 { margin-top: 0; }
+	</style>
+
+	<!--[if lte IE 9]>
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+		<header id="fh5co-header" role="banner">
+			<div class="container">
+				<div id="fh5co-logo">
+					<a href="index.html">
+						<img src="images/logo.png" alt="Marlon Buchanan logo">
+					</a>
+				</div>
+
+				<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+
+				<div id="fh5co-main-nav">
+					<nav id="fh5co-nav" role="navigation">
+						<ul>
+							<li>
+								<a href="index.html">Home</a>
+							</li>
+							<li class="fh5co-active">
+								<a href="projects.html">Projects</a>
+							</li>
+							<!-- Uncomment once these exist:
+							<li><a href="photography.html">Photography</a></li>
+							<li><a href="resume/Final_Year_Resume_gitpage_public.pdf" target="_blank">Resume</a></li>
+							-->
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<!-- Header -->
+
+		<main role="main">
+
+			<!-- ============ INTRO ============ -->
+			<div id="fh5co-intro">
+				<div class="container">
+					<a href="projects.html#hardware" class="project-back">&larr; All projects</a>
+					<h1>STM32F4 Breakout Board with IMU</h1>
+					<p class="project-sub">My first PCB: a 4-layer design that taught me Altium</p>
+					<div class="row">
+						<div class="col-md-6 col-md-push-6 fh5co-intro-sub">
+							<p>My first PCB: a 4-layer STM32F411 board with an MPU-6050 IMU, USB power, and SWD programming. I designed it by following <a href="https://www.youtube.com/watch?v=PMEpQZ90f34" target="_blank">Phil's Lab's STM32 hardware design tutorial</a> and took it all the way to manufacturing outputs.</p>
+							<p>It was never ordered. Its job was to teach me Altium and the fundamentals of board design, and I used what I learned here on every board after it, including the MPPT converter and the battery charger.</p>
+						</div>
+						<div class="col-md-6 col-md-pull-6">
+							<ul class="project-facts">
+								<li><strong>Role</strong> Solo learning project</li>
+								<li><strong>When</strong> January 2026</li>
+								<li><strong>Status</strong> Fab-ready (Gerbers, pick-and-place, BOM); not manufactured</li>
+								<li><strong>Parts</strong> STM32F411CEU6, MPU-6050, AMS1117-3.3, micro-USB, Tag-Connect SWD</li>
+								<li><strong>Tools</strong> Altium Designer, JLCPCB design rules and stack-up</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END INTRO ============ -->
+
+			<!-- ============ GALLERY ============ -->
+			<div id="js-fh5co-slider">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="owl-carousel owl-carousel-fullwidth">
+								<div class="item"><img src="stm32_images/stm32_4_3.jpg" alt="3D render of the STM32F4 breakout board"></div>
+								<div class="item"><img src="stm32_images/stm32_ground_plane.png" alt="Internal ground plane pour on layer 2"></div>
+								<div class="item"><img src="stm32_images/stm32_3d_vias.png" alt="3D close-up of routed traces and vias"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END GALLERY ============ -->
+
+			<div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+			<!-- ============ HIGHLIGHTS ============ -->
+			<div class="container project-section">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="fh5co-uppercase-heading-sm">Highlights</h2>
+						<ul>
+							<li>Designed a 4-layer board (signal / GND / power / signal) matched to JLCPCB's 1.6&nbsp;mm JLC7628 stack-up, with JLCPCB's design rules imported for manufacturability</li>
+							<li>Set up a 90&nbsp;&Omega; differential impedance profile and a differential-pair net class for the USB data lines</li>
+							<li>Built the power path from USB VBUS through a ferrite bead and filter capacitors to an AMS1117 3.3&nbsp;V LDO, with a power indicator LED</li>
+							<li>Placed parts by priority: decoupling capacitors at the MCU supply pins, then bulk capacitance, the crystal, and I2C pull-ups near the host</li>
+							<li>Poured an internal ground plane with stitching vias, and generated Gerber X2, pick-and-place, and BOM files for JLCPCB assembly</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END HIGHLIGHTS ============ -->
+
+			<div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+			<!-- ============ DESIGN PROCESS ============ -->
+			<div class="container project-section">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="fh5co-uppercase-heading-sm">Design Process</h2>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-5">
+						<figure class="project-figure">
+							<img src="stm32_images/stm32_schematic_power.png" alt="Schematic of the USB input and 3.3 V regulator" class="img-responsive">
+							<figcaption>USB input and 3.3&nbsp;V regulator schematic</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7">
+						<h3 class="h4">1. Schematic</h3>
+						<p>The schematic covers the STM32F411, an MPU-6050 IMU on I2C, a 24&nbsp;MHz crystal, SWD programming, GPIO breakout, and the USB power path.</p>
+						<p>This is where I picked up good habits I still use: net labels to keep sheets readable, No-ERC markers on unused pins so the checker stays meaningful, 3V3 and 2u2 value notation, and sanity math like sizing the LED resistor for about 3.3&nbsp;mA.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5 col-md-push-7">
+						<figure class="project-figure">
+							<img src="stm32_images/stm32_stackup.png" alt="Altium layer stack manager with impedance profile" class="img-responsive">
+							<figcaption>4-layer stack-up and USB impedance profile</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7 col-md-pull-5">
+						<h3 class="h4">2. Stack-up and design rules</h3>
+						<p>Before placing anything, I imported JLCPCB's manufacturing capabilities as design rules and copied their 4-layer stack-up into Altium. That set real trace widths for a 90&nbsp;&Omega; differential pair on the USB data lines.</p>
+						<p>It taught me that manufacturability is decided in the rules, not at the end.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5">
+						<figure class="project-figure">
+							<img src="stm32_images/stm32_3d_vias.png" alt="3D view of routed traces and vias" class="img-responsive">
+							<figcaption>Routing and vias in 3D</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7">
+						<h3 class="h4">3. Placement and routing</h3>
+						<p>I routed the critical paths first: the USB differential pair, decoupling capacitors, and the crystal, then the lower-speed signals like NRST. Power got wider traces (1&nbsp;mm narrowing to 0.5&nbsp;mm for 3.3&nbsp;V), sized to what each branch actually draws.</p>
+						<p>I checked the 3D view after every placement pass and marked polarity on every footprint so the board would assemble correctly.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5 col-md-push-7">
+						<figure class="project-figure">
+							<img src="stm32_images/stm32_ground_plane.png" alt="Ground plane pour on an inner layer" class="img-responsive">
+							<figcaption>Inner-layer ground plane</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7 col-md-pull-5">
+						<h3 class="h4">4. Ground plane and fab outputs</h3>
+						<p>Layer 2 is a solid ground pour tied to the top-layer grounds with vias, and stitching vias connect the ground planes. I re-poured and re-ran the design rule check until it was clean, then exported Gerber X2, pick-and-place, and a BOM matched to LCSC part numbers.</p>
+						<h3 class="h4">What I'd change</h3>
+						<p>Add ESD protection on the USB connector before the ferrite bead filter. The tutorial left it out, and I'd put it on any board that's going to be handled.</p>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END DESIGN PROCESS ============ -->
+
+			<!-- Next: this board's MCU + IMU core is the starting point for a custom PCB for Edmond. When that exists, link it here. -->
+
+			<!-- ============ SKILLS ============ -->
+			<div class="container project-section">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="fh5co-uppercase-heading-sm">Skills Used</h2>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<h3 class="h4">Schematic Capture</h3>
+						<p>MCU, IMU, USB, and power schematics in Altium with clean net labeling and ERC.</p>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<h3 class="h4">4-Layer PCB Layout</h3>
+						<p>Stack-up definition, impedance-controlled USB routing, ground planes, and via stitching.</p>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<h3 class="h4">Design for Manufacturing</h3>
+						<p>JLCPCB rules, Gerber X2, pick-and-place, and an LCSC-matched BOM.</p>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END SKILLS ============ -->
+
+			<div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+			<div class="container">
+				<a href="projects.html#hardware" class="project-back">&larr; All projects</a>
+			</div>
+
+			<div class="fh5co-spacer fh5co-spacer-md"></div>
+
+		</main>
+
+		<footer id="fh5co-footer" role="contentinfo">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-push-6 col-md-6">
+						<ul class="fh5co-footer-social">
+							<li><a href="mailto:marlongeorgebuchanan@gmail.com">Email</a></li>
+							<li><a href="https://www.linkedin.com/in/marlongb/">LinkedIn</a></li>
+							<li><a href="https://github.com/marlongbs-git">GitHub</a></li>
+						</ul>
+						<p class="fh5co-copyright">
+							<small>&copy; 2026 Marlon Buchanan. All Rights Reserved.<br>
+							Designed with: <a href="http://freehtml5.co/">freehtml5.co</a></small>
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Go To Top -->
+		<a href="#" class="fh5co-gotop"><i class="ti-shift-left"></i></a>
+
+		<!-- jQuery -->
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<!-- jQuery Easing -->
+		<script src="js/jquery.easing.1.3.js"></script>
+		<!-- Bootstrap -->
+		<script src="js/bootstrap.js"></script>
+		<!-- Owl carousel -->
+		<script src="js/owl.carousel.min.js"></script>
+		<!-- Magnific Popup -->
+		<script src="js/jquery.magnific-popup.min.js"></script>
+		<!-- Easy Responsive Tabs -->
+		<script src="js/easyResponsiveTabs.js"></script>
+		<!-- FastClick for Mobile/Tablets -->
+		<script src="js/fastclick.js"></script>
+		<!-- Velocity -->
+		<script src="js/velocity.min.js"></script>
+
+		<!-- Main JS -->
+		<script src="js/main.js"></script>
+
+	</body>
+</html>

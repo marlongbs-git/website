@@ -1,12 +1,3 @@
-<!-- 
-//////////////////////////////////////////////////////
-
-FREE HTML5 TEMPLATE 
-DESIGNED & DEVELOPED by FREEHTML5.CO
-
-//////////////////////////////////////////////////////
- -->
-
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -15,24 +6,23 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Marlon's Portfolio &mdash; Project SPIN</title>
+	<title>Solar Cell Testing Fixture &mdash; Marlon Buchanan</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
-  	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
-  	<meta name="author" content="FREEHTML5.CO" />
+	<meta name="description" content="A motorized 2-axis fixture that measures organic solar cell performance across tilt angles: mechanical design, electronic assembly, and hardware debugging." />
+	<meta name="keywords" content="solar cell testing, Arduino, stepper motor, hardware debugging, 3D printing, I-V curve, test fixture" />
+	<meta name="author" content="Marlon Buchanan" />
 
-  	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+	<!-- Link previews (LinkedIn, email, Slack) -->
+	<meta property="og:title" content="Solar Cell Testing Fixture — Marlon Buchanan"/>
+	<meta property="og:image" content="https://marlongbs-git.github.io/website/spin_images/spin_project_4_3.jpg"/>
+	<meta property="og:url" content="https://marlongbs-git.github.io/website/spin.html"/>
+	<meta property="og:site_name" content="Marlon Buchanan"/>
+	<meta property="og:description" content="A motorized 2-axis fixture that measures organic solar cell performance across tilt angles: mechanical design, electronic assembly, and hardware debugging."/>
+	<meta name="twitter:title" content="Solar Cell Testing Fixture — Marlon Buchanan" />
+	<meta name="twitter:image" content="https://marlongbs-git.github.io/website/spin_images/spin_project_4_3.jpg" />
+	<meta name="twitter:url" content="https://marlongbs-git.github.io/website/spin.html" />
+	<meta name="twitter:card" content="summary_large_image" />
 
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
 
 	<!-- Google Webfont -->
@@ -53,147 +43,189 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 	<!-- Theme Style -->
 	<link rel="stylesheet" href="css/style.css">
 
-	
-	<!-- FOR IE9 below -->
+	<!-- Project page helpers (same block on every project page) -->
+	<style>
+		.project-back { display: inline-block; margin-bottom: 10px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+		.project-sub { font-size: 16px; opacity: .75; margin-top: -10px; }
+		.project-facts { margin: 0; padding: 0; list-style: none; }
+		.project-facts li { margin-bottom: 8px; }
+		.project-facts strong { display: inline-block; min-width: 70px; }
+		.project-figure { margin: 0 0 30px 0; }
+		.project-figure img { width: 100%; }
+		.project-figure figcaption { font-size: 13px; opacity: .7; margin-top: 8px; }
+		.project-section h2 { margin-top: 0; }
+	</style>
+
 	<!--[if lte IE 9]>
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-
 	</head>
 	<body>
-		
+
 		<!-- Header -->
 		<header id="fh5co-header" role="banner">
 			<div class="container">
-				<!-- Logo -->
 				<div id="fh5co-logo">
 					<a href="index.html">
-						<img src="images/logo.png" alt="Work Logo">
+						<img src="images/logo.png" alt="Marlon Buchanan logo">
 					</a>
-
 				</div>
-				<!-- Logo -->
-				
-				<!-- Mobile Toggle Menu Button -->
+
 				<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-				
-				<!-- Main Nav -->
+
 				<div id="fh5co-main-nav">
 					<nav id="fh5co-nav" role="navigation">
 						<ul>
-							<li class="fh5co-active">
+							<li>
 								<a href="index.html">Home</a>
 							</li>
-							<li>
+							<li class="fh5co-active">
 								<a href="projects.html">Projects</a>
 							</li>
-							<li>
-							</li>
+							<!-- Uncomment once these exist:
+							<li><a href="photography.html">Photography</a></li>
+							<li><a href="resume/Final_Year_Resume_gitpage_public.pdf" target="_blank">Resume</a></li>
+							-->
 						</ul>
 					</nav>
 				</div>
-				<!-- Main Nav -->
 			</div>
 		</header>
 		<!-- Header -->
 
 		<main role="main">
-			<!-- Start Intro -->
+
+			<!-- ============ INTRO ============ -->
 			<div id="fh5co-intro">
 				<div class="container">
+					<a href="projects.html#hardware" class="project-back">&larr; All projects</a>
 					<h1>Solar Cell Testing Fixture</h1>
-						<div class="row">
-							<div class="col-md-6 col-md-push-6 fh5co-intro-sub">
-								<p>Developed as part of the Energy Harvesting Materials Course, this 2-axis rotating platform characterizes organic solar cell performance by measuring voltage and current output across multiple tilt angles. The system integrated a stepper motor, a custom PCB with copper contacts, an Arduino microcontroller, a motor driver, and rotational mounting platforms.</p>
-								<p>My role focused on designing the mechanical fixture that interfaces the stepper motor to the solar cell, along with electronic assembly and hardware debugging.</p>
-							</div>
+					<p class="project-sub">Project SPIN, Energy Harvesting Materials course</p>
+					<div class="row">
+						<div class="col-md-6 col-md-push-6 fh5co-intro-sub">
+							<p>A motorized 2-axis platform that measures organic solar cell performance across tilt angles. It integrates a stepper motor, an Arduino, a motor driver, and a custom PCB with spring-loaded copper contacts, synchronized with a source measure unit to capture I-V curves at each position.</p>
+							<p>I designed the mechanical fixture that connects the motor to the solar cell, and handled electronic assembly and hardware debugging.</p>
 						</div>
-				</div>
-			</div>
-			<!-- End Intro -->
-
-				<!-- Start SLIDER -->
-				<div id="js-fh5co-slider">
-					<div class="container">
-						<div class="row">
-							<div class="col-md-12">
-								<div class="owl-carousel owl-carousel-fullwidth">
-								    <div class="item"><img src="spin_images/spin_project_4_3.jpg" alt="image"></div>
-								    <div class="item"><img src="spin_images/exploded_view_4_3.png" alt="image"></div>
-								    <div class="item"><img src="spin_images/section_view_4_3.png" alt="image"></div>
-								    <div class="item"><img src="spin_images/pcb_victor_4_3.png" alt="image"></div>
-								</div>
-							</div>
+						<div class="col-md-6 col-md-pull-6">
+							<ul class="project-facts">
+								<li><strong>Role</strong> Fixture design, electronic assembly, hardware debugging</li>
+								<!-- TODO: add team size, e.g. <li><strong>Team</strong> 4 students</li> -->
+								<li><strong>Course</strong> Energy Harvesting Materials</li>
+								<li><strong>Tools</strong> Arduino, motor driver, Ossila Source Measure Unit, DMM, CAD, 3D printing</li>
+							</ul>
 						</div>
 					</div>
 				</div>
-				<!-- End SLIDER -->
+			</div>
+			<!-- ============ END INTRO ============ -->
 
-
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-					</div>
-					<div class="fh5co-spacer fh5co-spacer-sm"></div>
-					<div class="col-md-4 col-sm-6">
-						<h2 class="h4">Mechanical Design</h2>
-						<p>Design of a rotational, pitchable platform designed with four primary components to interface a DC motor with the substrate under test.</p>
-					</div>
-					<div class="col-md-4 col-sm-6">
-						<h2 class="h4">Rapid Prototyping</h2>
-						<p>Continuous iterative 3D printing with active adjustment of printer parameters and part orientation to optimize final part quality.</p>
-					</div>
-					<div class="col-md-4 col-sm-6">
-						<h2 class="h4">Hardware Debugging</h2>
-						<p> Hand-soldered connections verified for continuity, with a digital multimeter used to confirm expected voltages at the microcontroller and motor driver.</p>
+			<!-- ============ GALLERY ============ -->
+			<div id="js-fh5co-slider">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="owl-carousel owl-carousel-fullwidth">
+								<div class="item"><img src="spin_images/spin_project_4_3.jpg" alt="Solar cell testing fixture on the bench"></div>
+								<div class="item"><img src="spin_images/exploded_view_4_3.png" alt="Exploded CAD view of the fixture"></div>
+								<div class="item"><img src="spin_images/section_view_4_3.png" alt="Section view of the fixture"></div>
+								<div class="item"><img src="spin_images/pcb_victor_4_3.png" alt="Custom contact PCB"></div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-
-					<div class="fh5co-spacer fh5co-spacer-sm"></div>
-
-			<!-- Start Unordered List -->
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-					</div>
-					<h3>Key Achievements</h3>
-					<ul>
-						<li>Designed and 3D-printed a mechanical fixture enabling full 180° pitch solar cell rotation for angular characterization</li>
-						<li>Assembled and debugged a custom PCB with a copper contact array for reliable electrical interfacing</li>
-						<li>Acquired and analyzed I-V curve data using an Ossila Source Measure Unit, demonstrating a bell-curve relationship between pitch angle and power conversion efficiency</li>
-					</ul>
-				</li>
-			</ul>
-				</div>
-				<!-- End Unordered List -->
+			<!-- ============ END GALLERY ============ -->
 
 			<div class="fh5co-spacer fh5co-spacer-sm"></div>
 
-					<!-- Image Alignment -->
-					<div class="container">
+			<!-- ============ HIGHLIGHTS ============ -->
+			<div class="container project-section">
+				<div class="row">
 					<div class="col-md-12">
-
-						<img src="spin_images/wiring_450W.png" alt="Images" class="fh5co-align-left img-responsive">
-						<p>Project SPIN is an automated rotation platform designed to characterize solar cell performance across varying angles of incident light. 
-						   The system controls polar and azimuthal angles through a motorized fixture built with 3D-printed components and a spring-loaded probe PCB, 
-						   synchronized with an Ossila Source Measure Unit to acquire I-V curves at defined positions and produce repeatable efficiency measurements under realistic illumination conditions.</p>
-
-						<img src="spin_images/realsys_wiring_450W.png" alt="Images" class="fh5co-align-right img-responsive">
-						<p>The platform went through significant iteration throughout the build. 
-							Initial tolerances were too tight due to print speed settings, requiring resizing of the base component and adjustments to print orientation and nozzle diameter to achieve accurate fits. 
-							The substrate holder was the most sensitive assembly, with features refined to the tenth of a millimeter and reprinted repeatedly to ensure flush contact. 
-							All fasteners were designed to be fully recessed to eliminate cast shadows during rotation, which was critical to measurement accuracy. 
-							Hardware debugging covered cable continuity checks and voltage verification across the motor, power supply, and driver to confirm correct operation throughout the system.
-							The result was a functional piece of lab equipment with full documentation, delivered within a class timeline. 
-							The project reinforced how much can be achieved through rapid iteration and highlighted the impact that print settings, orientation, and tolerance planning have on the quality of functional prototypes.</p>
-											
+						<h2 class="fh5co-uppercase-heading-sm">Highlights</h2>
+						<!-- TODO: if you wrote or modified the Arduino code, add a bullet for it. The card is tagged "Arduino", so the page should back that up. -->
+						<ul>
+							<li>Designed and 3D-printed a fixture that rotates the solar cell through a full 180&deg; of pitch for angular characterization</li>
+							<li>Assembled and debugged the custom PCB with a copper contact array for reliable electrical connection to the cell</li>
+							<li>Verified the system end to end: cable continuity plus voltage checks across the power supply, motor driver, motor, and microcontroller</li>
+							<li>Collected and analyzed I-V curves with an Ossila Source Measure Unit, showing a bell-curve relationship between pitch angle and power conversion efficiency</li>
+						</ul>
 					</div>
 				</div>
-				<!-- Image Alignment -->
+			</div>
+			<!-- ============ END HIGHLIGHTS ============ -->
 
-				<div class="fh5co-spacer fh5co-spacer-md"></div>
+			<div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+			<!-- ============ BUILD PROCESS ============ -->
+			<div class="container project-section">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="fh5co-uppercase-heading-sm">Build Process</h2>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-5">
+						<figure class="project-figure">
+							<img src="spin_images/wiring_450W.png" alt="Wiring diagram of the testing fixture" class="img-responsive">
+							<figcaption>System wiring diagram</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7">
+						<h3 class="h4">How it works</h3>
+						<p>The fixture sets the cell's polar and azimuthal angles with 3D-printed parts and a spring-loaded probe PCB. At each position, the source measure unit sweeps an I-V curve, giving repeatable efficiency measurements under realistic lighting.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5 col-md-push-7">
+						<figure class="project-figure">
+							<img src="spin_images/realsys_wiring_450W.png" alt="Wiring of the assembled fixture" class="img-responsive">
+							<figcaption>As-built wiring</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7 col-md-pull-5">
+						<h3 class="h4">Iteration and debugging</h3>
+						<p>The first prints were too tight because of print speed settings. I resized the base and adjusted print orientation and nozzle size to get accurate fits.</p>
+						<p>The substrate holder was the most sensitive part. I refined its features to a tenth of a millimeter and reprinted until the cell sat flush. Every fastener is fully recessed so nothing casts a shadow on the cell during rotation, which matters for measurement accuracy.</p>
+						<p>On the electronics side, I checked continuity on every cable and verified voltages across the motor, power supply, and driver before full operation. The result was a working, documented piece of lab equipment, delivered within the course timeline.</p>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END BUILD PROCESS ============ -->
+
+			<!-- TODO (recommended): add a Results section with your efficiency-vs-angle plot. The data is your best proof the fixture works. -->
+
+			<!-- ============ SKILLS ============ -->
+			<div class="container project-section">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="fh5co-uppercase-heading-sm">Skills Used</h2>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<h3 class="h4">Hardware Debugging</h3>
+						<p>Continuity checks on hand-soldered connections and DMM voltage verification at the microcontroller, driver, and motor.</p>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<h3 class="h4">Mechanical Design</h3>
+						<p>A rotating, pitchable platform of four main parts that couples the motor to the cell under test.</p>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<h3 class="h4">Rapid Prototyping</h3>
+						<p>Iterative 3D printing, tuning print parameters and part orientation for tight-tolerance fits.</p>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END SKILLS ============ -->
+
+			<div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+			<div class="container">
+				<a href="projects.html#hardware" class="project-back">&larr; All projects</a>
+			</div>
+
+			<div class="fh5co-spacer fh5co-spacer-md"></div>
 
 		</main>
 
@@ -202,23 +234,22 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 				<div class="row">
 					<div class="col-md-push-6 col-md-6">
 						<ul class="fh5co-footer-social">
-							<li><a href="#"> </a></li>
+							<li><a href="mailto:marlongeorgebuchanan@gmail.com">Email</a></li>
 							<li><a href="https://www.linkedin.com/in/marlongb/">LinkedIn</a></li>
 							<li><a href="https://github.com/marlongbs-git">GitHub</a></li>
 						</ul>
 						<p class="fh5co-copyright">
-							<small>(c) 2026 </a> Marlon Buchanan </a>. All Rights Reserved. <br>
-Designed by: <a href="http://freehtml5.co/">freehtml5.co</a> 
+							<small>&copy; 2026 Marlon Buchanan. All Rights Reserved.<br>
+							Designed with: <a href="http://freehtml5.co/">freehtml5.co</a></small>
 						</p>
 					</div>
 				</div>
 			</div>
 		</footer>
-		
+
 		<!-- Go To Top -->
 		<a href="#" class="fh5co-gotop"><i class="ti-shift-left"></i></a>
-		
-			
+
 		<!-- jQuery -->
 		<script src="js/jquery-1.10.2.min.js"></script>
 		<!-- jQuery Easing -->
@@ -236,10 +267,6 @@ Designed by: <a href="http://freehtml5.co/">freehtml5.co</a>
 		<!-- Velocity -->
 		<script src="js/velocity.min.js"></script>
 
-		<!-- Google Map -->
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
-		<script src="js/google_map.js"></script>
-		
 		<!-- Main JS -->
 		<script src="js/main.js"></script>
 

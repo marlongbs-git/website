@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Edmond: Self-Balancing Robot &mdash; Marlon Buchanan</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="A two-wheeled self-balancing robot on an STM32F303K8, balanced by a discrete LQR controller designed in MATLAB/Simulink with IMU and encoder feedback." />
+	<meta name="keywords" content="self-balancing robot, STM32, LQR, control theory, MATLAB, Simulink, MPU6050, embedded C, inverted pendulum" />
+	<meta name="author" content="Marlon Buchanan" />
+
+	<!-- Link previews (LinkedIn, email, Slack) -->
+	<meta property="og:title" content="Edmond: Self-Balancing Robot — Marlon Buchanan"/>
+	<meta property="og:image" content="https://marlongbs-git.github.io/website/edmond_images/edmond_4_3.jpg"/>
+	<meta property="og:url" content="https://marlongbs-git.github.io/website/edmond.html"/>
+	<meta property="og:site_name" content="Marlon Buchanan"/>
+	<meta property="og:description" content="A two-wheeled self-balancing robot on an STM32F303K8, balanced by a discrete LQR controller designed in MATLAB/Simulink with IMU and encoder feedback."/>
+	<meta name="twitter:title" content="Edmond: Self-Balancing Robot — Marlon Buchanan" />
+	<meta name="twitter:image" content="https://marlongbs-git.github.io/website/edmond_images/edmond_4_3.jpg" />
+	<meta name="twitter:url" content="https://marlongbs-git.github.io/website/edmond.html" />
+	<meta name="twitter:card" content="summary_large_image" />
+
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<!-- Google Webfont -->
+	<link href='https://fonts.googleapis.com/css?family=PT+Mono' rel='stylesheet' type='text/css'>
+	<!-- Themify Icons -->
+	<link rel="stylesheet" href="css/themify-icons.css">
+	<!-- Icomoon Icons -->
+	<link rel="stylesheet" href="css/icomoon-icons.css">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<!-- Easy Responsive Tabs -->
+	<link rel="stylesheet" href="css/easy-responsive-tabs.css">
+	<!-- Theme Style -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Project page helpers (same block on every project page) -->
+	<style>
+		.project-back { display: inline-block; margin-bottom: 10px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+		.project-sub { font-size: 16px; opacity: .75; margin-top: -10px; }
+		.project-facts { margin: 0; padding: 0; list-style: none; }
+		.project-facts li { margin-bottom: 8px; }
+		.project-facts strong { display: inline-block; min-width: 70px; }
+		.project-figure { margin: 0 0 30px 0; }
+		.project-figure img { width: 100%; }
+		.project-figure figcaption { font-size: 13px; opacity: .7; margin-top: 8px; }
+		.project-section h2 { margin-top: 0; }
+	</style>
+
+	<!--[if lte IE 9]>
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+		<header id="fh5co-header" role="banner">
+			<div class="container">
+				<div id="fh5co-logo">
+					<a href="index.html">
+						<img src="images/logo.png" alt="Marlon Buchanan logo">
+					</a>
+				</div>
+
+				<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+
+				<div id="fh5co-main-nav">
+					<nav id="fh5co-nav" role="navigation">
+						<ul>
+							<li>
+								<a href="index.html">Home</a>
+							</li>
+							<li class="fh5co-active">
+								<a href="projects.html">Projects</a>
+							</li>
+							<!-- Uncomment once these exist:
+							<li><a href="photography.html">Photography</a></li>
+							<li><a href="resume/Final_Year_Resume_gitpage_public.pdf" target="_blank">Resume</a></li>
+							-->
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<!-- Header -->
+
+		<main role="main">
+
+			<!-- ============ INTRO ============ -->
+			<div id="fh5co-intro">
+				<div class="container">
+					<a href="projects.html#hardware" class="project-back">&larr; All projects</a>
+					<h1>Edmond: Self-Balancing Robot</h1>
+					<p class="project-sub">STM32 inverted pendulum with LQR control</p>
+					<div class="row">
+						<div class="col-md-6 col-md-push-6 fh5co-intro-sub">
+							<p>Edmond is a two-wheeled inverted-pendulum robot built around an STM32F303K8. He balances with a discrete LQR controller I designed in MATLAB/Simulink, using IMU and wheel encoder feedback, and his OLED face reacts when he falls.</p>
+							<p>I designed the controller, wrote the firmware in C on STM32 HAL, wired and debugged the electronics, and modeled the 3D-printed chassis in SolidWorks. <a href="https://github.com/marlongbs-git/balancing-bot-edmond" target="_blank">View the code on GitHub &rarr;</a></p>
+						</div>
+						<div class="col-md-6 col-md-pull-6">
+							<ul class="project-facts">
+								<!-- TODO: confirm this was a solo project -->
+								<li><strong>Role</strong> Solo project: controls, firmware, electronics, CAD</li>
+								<!-- TODO: add the date, e.g. <li><strong>When</strong> Summer 2026</li> -->
+								<li><strong>MCU</strong> STM32F303K8 (Cortex-M4F)</li>
+								<li><strong>Tools</strong> STM32CubeIDE, MATLAB/Simulink, SolidWorks</li>
+								<li><strong>Code</strong> <a href="https://github.com/marlongbs-git/balancing-bot-edmond" target="_blank">github.com/marlongbs-git/balancing-bot-edmond</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END INTRO ============ -->
+
+			<!-- ============ GALLERY ============ -->
+			<div id="js-fh5co-slider">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="owl-carousel owl-carousel-fullwidth">
+								<div class="item"><img src="edmond_images/edmond_4_3.jpg" alt="Edmond balancing in front of a bench power supply"></div>
+								<div class="item"><img src="edmond_images/edmond_exploded2.png" alt="Exploded CAD view of Edmond's chassis"></div>
+								<div class="item"><img src="edmond_images/edmond_electronicsbringup.jpg" alt="Edmond's electronics during bring-up"></div>
+								<div class="item"><img src="edmond_images/front.png" alt="Front view of Edmond's chassis in CAD"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END GALLERY ============ -->
+
+			<div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+			<!-- ============ HIGHLIGHTS ============ -->
+			<div class="container project-section">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="fh5co-uppercase-heading-sm">Highlights</h2>
+						<!-- TODO (strongly recommended): a 10-15 second clip of Edmond recovering from a push. Save it as edmond_images/edmond_demo.mp4 and put this right under the intro:
+						<video src="edmond_images/edmond_demo.mp4" autoplay muted loop playsinline style="width:100%;margin-bottom:20px"></video> -->
+						<ul>
+							<li>Balances unaided and recovers from small pushes, with a discrete LQR controller on the full state [x, &#7819;, &theta;, &theta;&#775;]</li>
+							<li>Built the plant model from first principles: a cart-pendulum linearized about upright, discretized, and solved with <code>dlqr</code> in MATLAB</li>
+							<li>Pulled real masses, center of mass, and inertia from SolidWorks mass properties instead of guessing them</li>
+							<li>Fused MPU6050 accelerometer and gyro data with a complementary filter, and combined it with quadrature encoder data each control cycle</li>
+							<li>Converted controller force into motor duty cycle with an electrical motor model that accounts for torque, back-EMF, and supply voltage</li>
+							<li>Wrote modular C firmware on STM32 HAL: IMU driver, encoders, state estimation, control, and an OLED face that only redraws on state changes</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END HIGHLIGHTS ============ -->
+
+			<div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+			<!-- ============ HOW IT WORKS ============ -->
+			<div class="container project-section">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="fh5co-uppercase-heading-sm">How It Works</h2>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-5">
+						<figure class="project-figure">
+							<img src="edmond_images/cart_pend.png" alt="Cart-pendulum model used for Edmond's controller" class="img-responsive">
+							<figcaption>Cart-pendulum plant model</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7">
+						<h3 class="h4">1. Modeling and LQR design</h3>
+						<p>I modeled Edmond as a cart-pendulum and linearized it about the upright position. Then I discretized the model and designed the gain matrix with <code>dlqr</code> in MATLAB, verifying it in Simulink before touching hardware.</p>
+						<p>The Q matrix weights tilt angle and angular rate far above wheel position, so Edmond prioritizes staying upright. R penalizes motor effort to keep the motors out of saturation.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5 col-md-push-7">
+						<figure class="project-figure">
+							<img src="edmond_images/LQR.png" alt="LQR controller design in MATLAB" class="img-responsive">
+							<figcaption>LQR design in MATLAB/Simulink</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7 col-md-pull-5">
+						<h3 class="h4">2. The control loop</h3>
+						<p>Every cycle, the firmware reads the IMU over I2C and fuses it with a complementary filter to get pitch and pitch rate. It reads the encoders for wheel position and velocity, then computes <em>u&nbsp;=&nbsp;&minus;Kx</em>.</p>
+						<p>A motor model converts that force into a PWM duty cycle for the H-bridge. If tilt passes a threshold, the motors cut out and the OLED switches to a fallen face.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5">
+						<figure class="project-figure">
+							<img src="edmond_images/edmond_electronicsbringup.jpg" alt="Edmond electronics bring-up on the bench" class="img-responsive">
+							<figcaption>Electronics bring-up</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7">
+						<h3 class="h4">3. Bring-up and debugging</h3>
+						<p>The IMU and OLED share one I2C bus. Loose connectors caused intermittent I2C failures, which taught me that a silent read failure is worse than a loud one. I added a bus-recovery routine and soldered the final build.</p>
+						<p>Other lessons came straight from the hardware. A degrees-versus-radians mismatch is the fastest way to saturate a motor, and deadband, back-EMF spikes, and the power supply all show up in the control loop.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5 col-md-push-7">
+						<figure class="project-figure">
+							<img src="edmond_images/edmond_exploded2.png" alt="Exploded view of Edmond's 3D-printed chassis" class="img-responsive">
+							<figcaption>3D-printed PLA chassis</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7 col-md-pull-5">
+						<h3 class="h4">4. Mechanical design</h3>
+						<p>The PLA chassis holds the two geared motors, the electronics deck, and the OLED. I designed it in SolidWorks, which also gave the controller its physical parameters.</p>
+						<h3 class="h4">Next</h3>
+						<p>An extended Kalman filter for attitude estimation, battery power, and a custom PCB to replace the hand-wired electronics.</p>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END HOW IT WORKS ============ -->
+
+			<!-- Full derivations live in the repo: https://github.com/marlongbs-git/balancing-bot-edmond/tree/main/docs -->
+
+			<!-- ============ SKILLS ============ -->
+			<div class="container project-section">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="fh5co-uppercase-heading-sm">Skills Used</h2>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<h3 class="h4">Control Theory</h3>
+						<p>State-space modeling, linearization, discretization, and discrete LQR design in MATLAB/Simulink.</p>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<h3 class="h4">Embedded Firmware</h3>
+						<p>Modular C on STM32 HAL: I2C drivers, encoder timers, PWM motor control, sensor fusion.</p>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<h3 class="h4">Hardware Debugging</h3>
+						<p>I2C bus failures and recovery, motor deadband, and power supply issues on a live control loop.</p>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END SKILLS ============ -->
+
+			<div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+			<div class="container">
+				<a href="projects.html#hardware" class="project-back">&larr; All projects</a>
+			</div>
+
+			<div class="fh5co-spacer fh5co-spacer-md"></div>
+
+		</main>
+
+		<footer id="fh5co-footer" role="contentinfo">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-push-6 col-md-6">
+						<ul class="fh5co-footer-social">
+							<li><a href="mailto:marlongeorgebuchanan@gmail.com">Email</a></li>
+							<li><a href="https://www.linkedin.com/in/marlongb/">LinkedIn</a></li>
+							<li><a href="https://github.com/marlongbs-git">GitHub</a></li>
+						</ul>
+						<p class="fh5co-copyright">
+							<small>&copy; 2026 Marlon Buchanan. All Rights Reserved.<br>
+							Designed with: <a href="http://freehtml5.co/">freehtml5.co</a></small>
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Go To Top -->
+		<a href="#" class="fh5co-gotop"><i class="ti-shift-left"></i></a>
+
+		<!-- jQuery -->
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<!-- jQuery Easing -->
+		<script src="js/jquery.easing.1.3.js"></script>
+		<!-- Bootstrap -->
+		<script src="js/bootstrap.js"></script>
+		<!-- Owl carousel -->
+		<script src="js/owl.carousel.min.js"></script>
+		<!-- Magnific Popup -->
+		<script src="js/jquery.magnific-popup.min.js"></script>
+		<!-- Easy Responsive Tabs -->
+		<script src="js/easyResponsiveTabs.js"></script>
+		<!-- FastClick for Mobile/Tablets -->
+		<script src="js/fastclick.js"></script>
+		<!-- Velocity -->
+		<script src="js/velocity.min.js"></script>
+
+		<!-- Main JS -->
+		<script src="js/main.js"></script>
+
+	</body>
+</html>

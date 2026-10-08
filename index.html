@@ -1,12 +1,3 @@
-<!-- 
-//////////////////////////////////////////////////////
-
-FREE HTML5 TEMPLATE 
-DESIGNED & DEVELOPED by FREEHTML5.CO
-
-//////////////////////////////////////////////////////
- -->
-
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -15,24 +6,23 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Marlon's Portfolio &mdash; Home</title>
+	<title>Marlon Buchanan &mdash; Hardware Design</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
-  	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
-  	<meta name="author" content="FREEHTML5.CO" />
+	<meta name="description" content="Marlon Buchanan designs embedded hardware: schematics, PCB layout, board bring-up, and control firmware. Senior Sustainable Energy Engineering student at SFU." />
+	<meta name="keywords" content="hardware design, PCB design, embedded systems, STM32, power electronics, MPPT, control systems, SFU" />
+	<meta name="author" content="Marlon Buchanan" />
 
-  	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+	<!-- Link previews (LinkedIn, email, Slack) -->
+	<meta property="og:title" content="Marlon Buchanan — Hardware Design Portfolio"/>
+	<meta property="og:description" content="Embedded hardware: PCB design and bring-up, power electronics, and control. Edmond self-balancing robot, MPPT converter, and more."/>
+	<meta property="og:image" content="https://marlongbs-git.github.io/website/images/og_portfolio.jpg"/>
+	<meta property="og:url" content="https://marlongbs-git.github.io/website/"/>
+	<meta property="og:site_name" content="Marlon Buchanan"/>
+	<meta name="twitter:title" content="Marlon Buchanan — Hardware Design Portfolio" />
+	<meta name="twitter:image" content="https://marlongbs-git.github.io/website/images/og_portfolio.jpg" />
+	<meta name="twitter:url" content="https://marlongbs-git.github.io/website/" />
+	<meta name="twitter:card" content="summary_large_image" />
 
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
 
 	<!-- Google Webfont -->
@@ -53,32 +43,49 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 	<!-- Theme Style -->
 	<link rel="stylesheet" href="css/style.css">
 
-	
-	<!-- FOR IE9 below -->
+	<!-- Home page sections (only used on this page; the rest of the site is unchanged) -->
+	<style>
+		.home-pitch { font-size: 22px; line-height: 1.45; margin: 0 0 20px; }
+		.home-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+		.home-btn { display: inline-block; padding: 12px 22px; font-size: 14px; border: 1.5px solid #141414; text-decoration: none !important; }
+		.home-btn-dark { background: #141414; color: #fff !important; }
+		.home-btn-dark:hover { background: #333; border-color: #333; }
+		.home-btn-light { color: #141414 !important; }
+		.home-btn-light:hover { background: #f2f2f2; }
+		.home-section { border-top: 1px solid #dcdcdc; padding: 44px 0; }
+		.home-label { font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; margin: 0 0 22px; }
+		.home-label-row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px; }
+		.home-featured { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
+		.home-card { display: flex; flex-direction: column; gap: 12px; color: inherit; text-decoration: none !important; }
+		.home-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+		.home-card h3 { font-size: 21px; margin: 4px 0 0; }
+		.home-card p { margin: 0; line-height: 1.55; }
+		.home-card .home-tags { font-size: 13px; opacity: .7; }
+		.home-card:hover h3 { text-decoration: underline; }
+		.home-cols { display: flex; flex-wrap: wrap; gap: 40px; }
+		.home-cols > div { flex: 1 1 300px; min-width: 0; }
+		.home-list { list-style: none; margin: 0; padding: 0; }
+		.home-list li { margin-bottom: 10px; font-size: 16px; }
+	</style>
+
 	<!--[if lte IE 9]>
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-
 	</head>
 	<body>
-		
+
 		<!-- Header -->
 		<header id="fh5co-header" role="banner">
 			<div class="container">
-				<!-- Logo -->
 				<div id="fh5co-logo">
 					<a href="index.html">
-						<img src="images/logo.png" alt="Work Logo">
+						<img src="images/logo.png" alt="Marlon Buchanan home">
 					</a>
-
 				</div>
-				<!-- Logo -->
-				
-				<!-- Mobile Toggle Menu Button -->
+
 				<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-				
-				<!-- Main Nav -->
+
 				<div id="fh5co-main-nav">
 					<nav id="fh5co-nav" role="navigation">
 						<ul>
@@ -88,46 +95,101 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 							<li>
 								<a href="projects.html">Projects</a>
 							</li>
-							<li>
-								<!-- <a href="/website/resume/Final_Year_Resume_gitpage_public.pdf" target="_blank">Resume</a> -->
-							</li>
+							<!-- Uncomment once these exist:
+							<li><a href="photography.html">Photography</a></li>
+							<li><a href="resume/Final_Year_Resume_gitpage_public.pdf" target="_blank">Resume</a></li>
+							-->
 						</ul>
 					</nav>
 				</div>
-				<!-- Main Nav -->
 			</div>
 		</header>
 		<!-- Header -->
 
 		<main role="main">
-			<!-- Start Intro -->
+
+			<!-- ============ INTRO ============ -->
 			<div id="fh5co-intro">
 				<div class="container">
-					<h1>Hey, I'm Marlon! </h1>
-						<div class="row">
-							<div class="col-md-6 col-md-push-6 fh5co-intro-sub">
-								<p>I'm an engineer who learns best at the edges of what I know — which is what draws me to sustainable energy, where the problems are complex, the tools are evolving, and no solution fits neatly into one discipline.</p>
-								<p>As a senior Sustainable Energy Engineering student at SFU, I bring hands-on experience in PCB layout, mechanical design, and simulation. In my senior capstone, I designed PCBs to maximize solar power extraction (MPPT); on an EV design team; I built driver-safety systems, including harnesses and seating mounts. I'm actively seeking co-op opportunities in clean energy and sustainable systems.</p>
-								<p>Outside of engineering, I stay active through weightlifting, running, and volleyball. I also do street photography around Vancouver, finding meaning in everyday moments.</p>
-								<p>Take a look at my projects page or reach out if you'd like to know more!</p>
+					<h1>Hey, I'm Marlon.</h1>
+					<div class="row">
+						<div class="col-md-7">
+							<p class="home-pitch">I design embedded hardware: schematics, PCB layout, board bring-up, and the control firmware that runs on it.</p>
+						</div>
+						<div class="col-md-5">
+							<p>Senior Sustainable Energy Engineering student at SFU. I've built a self-balancing robot on STM32 and led the electronics for an MPPT solar converter in my capstone. My mechanical design background means I can take a board all the way into a working physical system.</p>
+							<p>Looking for hardware design co-op roles.</p>
+							<div class="home-buttons">
+								<!-- TODO: confirm this resume PDF is your current one before pushing -->
+								<a href="resume/Final_Year_Resume_gitpage_public.pdf" target="_blank" class="home-btn home-btn-dark">Download resume</a>
+								<a href="mailto:marlongeorgebuchanan@gmail.com" class="home-btn home-btn-light">Email me</a>
 							</div>
 						</div>
-				</div>
-			</div>
-			<!-- End Intro -->
-
-			<div class="fh5co-spacer fh5co-spacer-md"></div>
-			
-			<!-- Start  Let's Chat -->
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-						<h2 class="h2">Let's Chat</h2>
-						<p>I'd love to connect, send me an email at <a href="mailto:marlongeorgebuchanan@gmail.com" target="_blank">marlongeorgebuchanan@gmail.com</a></p>
 					</div>
 				</div>
 			</div>
-			<!-- End  Let's Chat -->
+			<!-- ============ END INTRO ============ -->
+
+			<div class="container">
+
+				<!-- ============ FEATURED ============ -->
+				<section class="home-section">
+					<div class="home-label-row">
+						<h2 class="home-label">Featured hardware</h2>
+						<a href="projects.html">All projects &rarr;</a>
+					</div>
+					<div class="home-featured">
+						<a href="edmond.html" class="home-card">
+							<img src="edmond_images/edmond_4_3.jpg" alt="Edmond self-balancing robot">
+							<h3>Edmond: Self-Balancing Robot</h3>
+							<p>Discrete LQR controller designed in MATLAB/Simulink, running on an STM32F303 with IMU and encoder feedback. Recovers from pushes.</p>
+							<p class="home-tags">STM32 &middot; Control Theory &middot; Embedded C</p>
+						</a>
+						<a href="PLANT.html" class="home-card">
+							<img src="plant_images2/mppt_render_4_3.jpg" alt="MPPT converter PCB render">
+							<h3>MPPT Solar Converter PCB</h3>
+							<p>Capstone electronics lead. Synchronous buck converter with voltage and current sensing, after a failed first design and four breakout boards.</p>
+							<p class="home-tags">Power Electronics &middot; Altium &middot; Bring-Up</p>
+						</a>
+					</div>
+				</section>
+
+				<!-- ============ MORE WORK ============ -->
+				<section class="home-section home-cols">
+					<div>
+						<h2 class="home-label">More hardware</h2>
+						<ul class="home-list">
+							<li><a href="stm32.html">STM32F4 Breakout Board with IMU</a></li>
+							<li><a href="batterycharger.html">18650 Battery Charger Board</a></li>
+							<li><a href="spin.html">Solar Cell Testing Fixture</a></li>
+						</ul>
+					</div>
+					<div>
+						<h2 class="home-label">Mechanical + design teams</h2>
+						<ul class="home-list">
+							<li><a href="Phantom.html">SFU Team Phantom, Formula SAE Electric</a></li>
+							<li><a href="WLF.html">WLF Hydroponic Labs</a></li>
+							<li><a href="wict.html">WiCT ASHRAE Building Design</a></li>
+						</ul>
+					</div>
+				</section>
+
+				<!-- ============ ABOUT + CONTACT ============ -->
+				<section class="home-section home-cols">
+					<div>
+						<h2 class="home-label">Outside the lab</h2>
+						<!-- When photography.html exists, add: <a href="photography.html">See the photos &rarr;</a> -->
+						<p>I lift, run, and play volleyball, and I shoot street photography around Vancouver.</p>
+					</div>
+					<div>
+						<h2 class="home-label">Let's chat</h2>
+						<p><a href="mailto:marlongeorgebuchanan@gmail.com">marlongeorgebuchanan@gmail.com</a><br>
+						<a href="https://www.linkedin.com/in/marlongb/" target="_blank">LinkedIn</a> &middot; <a href="https://github.com/marlongbs-git" target="_blank">GitHub</a></p>
+					</div>
+				</section>
+
+			</div>
+
 			<div class="fh5co-spacer fh5co-spacer-sm"></div>
 
 		</main>
@@ -137,24 +199,22 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 				<div class="row">
 					<div class="col-md-push-6 col-md-6">
 						<ul class="fh5co-footer-social">
-							<li><a href="#"> </a></li>
+							<li><a href="mailto:marlongeorgebuchanan@gmail.com">Email</a></li>
 							<li><a href="https://www.linkedin.com/in/marlongb/">LinkedIn</a></li>
 							<li><a href="https://github.com/marlongbs-git">GitHub</a></li>
 						</ul>
 						<p class="fh5co-copyright">
-							<small>(c) 2026 </a> Marlon Buchanan </a>. All Rights Reserved. <br>
-Designed with: <a href="http://freehtml5.co/">freehtml5.co</a> 
+							<small>&copy; 2026 Marlon Buchanan. All Rights Reserved.<br>
+							Designed with: <a href="http://freehtml5.co/">freehtml5.co</a></small>
 						</p>
 					</div>
 				</div>
 			</div>
 		</footer>
 
-	
 		<!-- Go To Top -->
 		<a href="#" class="fh5co-gotop"><i class="ti-shift-left"></i></a>
-		
-			
+
 		<!-- jQuery -->
 		<script src="js/jquery-1.10.2.min.js"></script>
 		<!-- jQuery Easing -->
@@ -171,9 +231,7 @@ Designed with: <a href="http://freehtml5.co/">freehtml5.co</a>
 		<script src="js/fastclick.js"></script>
 		<!-- Velocity -->
 		<script src="js/velocity.min.js"></script>
-		<!-- Google Map -->
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
-		<script src="js/google_map.js"></script>
+
 		<!-- Main JS -->
 		<script src="js/main.js"></script>
 

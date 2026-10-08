@@ -8,8 +8,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Maximum Power Point Tracking PCB &mdash; Marlon Buchanan</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Capstone project: a synchronous buck MPPT converter PCB with integrated voltage and current sensing, designed and brought up by Marlon Buchanan." />
-	<meta name="keywords" content="MPPT, PCB design, power electronics, synchronous buck, Altium, LTspice, PLECS, hardware bring-up" />
+	<meta name="description" content="Capstone project: a synchronous buck MPPT converter PCB with integrated voltage and current sensing, plus the breakout boards used to develop it." />
+	<meta name="keywords" content="MPPT, PCB design, power electronics, synchronous buck, buck-boost, gate driver, current sensing, Altium, LTspice, PLECS, hardware bring-up" />
 	<meta name="author" content="Marlon Buchanan" />
 
 	<!-- Link previews (LinkedIn, email, Slack) -->
@@ -17,7 +17,7 @@
 	<meta property="og:image" content="https://marlongbs-git.github.io/website/plant_images2/systempicture_4_3.jpg"/>
 	<meta property="og:url" content="https://marlongbs-git.github.io/website/PLANT.html"/>
 	<meta property="og:site_name" content="Marlon Buchanan"/>
-	<meta property="og:description" content="Synchronous buck MPPT converter with integrated sensing: schematic, layout, hand assembly, and staged bring-up."/>
+	<meta property="og:description" content="Capstone project: a synchronous buck MPPT converter PCB with integrated voltage and current sensing, plus the breakout boards used to develop it."/>
 	<meta name="twitter:title" content="Maximum Power Point Tracking PCB — Marlon Buchanan" />
 	<meta name="twitter:image" content="https://marlongbs-git.github.io/website/plant_images2/systempicture_4_3.jpg" />
 	<meta name="twitter:url" content="https://marlongbs-git.github.io/website/PLANT.html" />
@@ -43,7 +43,7 @@
 	<!-- Theme Style -->
 	<link rel="stylesheet" href="css/style.css">
 
-	<!-- Project page helpers -->
+	<!-- Project page helpers (same block on every project page) -->
 	<style>
 		.project-back { display: inline-block; margin-bottom: 10px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
 		.project-sub { font-size: 16px; opacity: .75; margin-top: -10px; }
@@ -54,6 +54,9 @@
 		.project-figure img { width: 100%; }
 		.project-figure figcaption { font-size: 13px; opacity: .7; margin-top: 8px; }
 		.project-section h2 { margin-top: 0; }
+		/* Every carousel slide is 4:3, whatever the image, so the slider never jumps in height */
+		.owl-carousel-fullwidth .item img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: #fff; }
+		.gallery-links { margin-top: 35px; }
 	</style>
 
 	<!--[if lte IE 9]>
@@ -85,7 +88,7 @@
 							</li>
 							<!-- Uncomment once these exist:
 							<li><a href="photography.html">Photography</a></li>
-							<li><a href="Marlon_Buchanan_Resume.pdf" target="_blank">Resume</a></li>
+							<li><a href="resume/Final_Year_Resume_gitpage_public.pdf" target="_blank">Resume</a></li>
 							-->
 						</ul>
 					</nav>
@@ -105,12 +108,12 @@
 					<div class="row">
 						<div class="col-md-6 col-md-push-6 fh5co-intro-sub">
 							<p>I led the electronics design for Team PLANT's capstone: a DC-DC converter with integrated voltage and current sensing that runs a maximum power point tracking (MPPT) algorithm to pull the most energy from organic solar panels.</p>
-							<p>The wider system was a proof-of-concept greenhouse shade that tilts solar panels to protect plants while the MPPT board harvests their power.</p>
+							<p>The wider system was a proof-of-concept greenhouse shade that tilts solar panels to protect plants while the MPPT board harvests their power. Getting there took a failed first converter, a redesign, and a set of breakout boards for each subsystem.</p>
 						</div>
 						<div class="col-md-6 col-md-pull-6">
 							<ul class="project-facts">
 								<li><strong>Role</strong> Electronics lead: schematic, layout, assembly, bring-up</li>
-								<!-- TODO: add teammates' roles, e.g. "Team: 5 (board co-designed with Lona Le)" -->
+								<!-- TODO: add teammates' roles, e.g. "Team: 5 (boards co-designed with Lona Le)" -->
 								<li><strong>Team</strong> Team PLANT, SFU capstone</li>
 								<li><strong>When</strong> Spring 2026</li>
 								<li><strong>Tools</strong> Altium Designer, LTspice, PLECS, oscilloscope, DMM, signal generator</li>
@@ -131,6 +134,8 @@
 								<div class="item"><img src="plant_images2/PCB_Final_4_3.jpg" alt="Final MPPT converter PCB"></div>
 								<div class="item"><img src="plant_images2/schematic_final_full.jpg" alt="Final MPPT converter schematic"></div>
 								<div class="item"><img src="plant_images2/PCB_Final_test2_4_3.jpg" alt="MPPT PCB under test on the bench"></div>
+								<div class="item"><img src="plant_images2/buckboost_photo_4_3.jpg" alt="Assembled first-revision two-switch buck-boost breakout board"></div>
+								<div class="item"><img src="plant_images2/sensing_render_4_3.jpg" alt="Current and voltage sensing breakout board"></div>
 								<div class="item"><img src="plant_images2/breakout_boards_updated.jpg" alt="Hand-assembled breakout boards for component validation"></div>
 								<div class="item"><img src="plant_images2/teamphoto_4_3.jpg" alt="Team PLANT"></div>
 							</div>
@@ -147,14 +152,12 @@
 				<div class="row">
 					<div class="col-md-12">
 						<h2 class="fh5co-uppercase-heading-sm">Highlights</h2>
-						<!-- TODO: add one hard number if you have it (input range, output voltage,
-						     switching frequency, efficiency, or MPPT tracking result). One number
-						     here does more than any adjective. -->
+						<!-- TODO: add one hard number if you have it (input range, output voltage, switching frequency, efficiency, or MPPT tracking result). -->
 						<ul>
 							<li>Designed a synchronous buck converter with integrated voltage and current sensing, from hand calculations through schematic, layout, and a working board</li>
 							<li>Diagnosed a failed first design and led a full redesign to a simpler, cheaper half-bridge topology</li>
 							<li>Laid out the board for staged bring-up: scope test points, accessible grounds, and 0&#8209;ohm links to power each subsection on its own</li>
-							<li>Hand-assembled the converter plus 8+ breakout boards to validate components before committing to the full design</li>
+							<li>Built breakout boards for each subsystem (power stage, gate drivers, current and voltage sensing, battery charging) and hand-assembled 8+ boards in total</li>
 							<li>Delivered voltage and current sensing within the 3.3&nbsp;V ADC range, ready for MPPT firmware</li>
 						</ul>
 					</div>
@@ -164,7 +167,7 @@
 
 			<div class="fh5co-spacer fh5co-spacer-sm"></div>
 
-			<!-- ============ DESIGN STORY ============ -->
+			<!-- ============ DESIGN PROCESS ============ -->
 			<div class="container project-section">
 				<div class="row">
 					<div class="col-md-12">
@@ -172,7 +175,6 @@
 					</div>
 				</div>
 
-				<!-- Rev 1 -->
 				<div class="row">
 					<div class="col-md-5">
 						<figure class="project-figure">
@@ -186,41 +188,112 @@
 						<p>The first design used a two-switch buck-boost topology with independent gate drivers. I hand-calculated the capacitor, inductor, MOSFET, and high-side gate drive values, taught myself Altium, and refined the layout with guidance from power electronics advisors.</p>
 					</div>
 				</div>
-
-				<!-- Failure + redesign -->
 				<div class="row">
 					<div class="col-md-5 col-md-push-7">
+						<figure class="project-figure">
+							<img src="plant_images2/buckboost_photo_4_3.jpg" alt="Assembled two-switch buck-boost breakout board" class="img-responsive">
+							<figcaption>The assembled REV1 breakout. U3, left of the inductor, is the 10-pin MSOP high-side driver</figcaption>
+						</figure>
+						<figure class="project-figure">
+							<a href="plant_images2/buckboost_sch_full.png" class="image-popup"><img src="plant_images2/buckboost_power_sch.png" alt="Power stage schematic of the buck-boost breakout" class="img-responsive"></a>
+							<figcaption>Power stage schematic (click to enlarge the full sheet)</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7 col-md-pull-5">
+						<h3 class="h4">2. The power stage on a breakout board</h3>
+						<p>To bring the power stage up on its own, I put it on a dedicated breakout board. It takes 0&ndash;42&nbsp;V from the panel at up to 500&nbsp;mA and targets a 25&nbsp;V output.</p>
+						<p>A high-side MOSFET with a freewheeling diode forms the buck half, and a low-side MOSFET with a boost diode forms the boost half. An LTC7004 in a 10-pin MSOP drives the high-side gate from a bootstrap supply, a FAN3111 drives the low side, and two headers let a microcontroller drive both gates with PWM.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5">
 						<figure class="project-figure">
 							<img src="plant_images2/ltspice_gatedriver_500W.jpg" alt="LTspice simulation of the gate driver" class="img-responsive">
 							<figcaption>LTspice gate driver simulation</figcaption>
 						</figure>
+						<figure class="project-figure">
+							<a href="plant_images2/buckboost_sch_full.png" class="image-popup"><img src="plant_images2/buckboost_gate_sch.png" alt="High-side and low-side gate driver schematics" class="img-responsive"></a>
+							<figcaption>Gate driver schematics (click to enlarge the full sheet)</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7">
+						<h3 class="h4">3. Bring-up failure and diagnosis</h3>
+						<p>The board failed during bring-up, most likely from solder bridging on fine-pitch parts during hand assembly. A second population failed the same way, which pointed at the high-side driver in its 10-pin MSOP package, through either routing or soldering.</p>
+						<p>The parts were expensive and a dead IC is hard to diagnose, so rather than keep reworking it I chose a full redesign.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5 col-md-push-7">
+						<figure class="project-figure">
+							<img src="plant_images2/PCB_Final_4_3.jpg" alt="Final synchronous buck MPPT board" class="img-responsive">
+							<figcaption>Final synchronous buck board</figcaption>
+						</figure>
 					</div>
 					<div class="col-md-7 col-md-pull-5">
-						<h3 class="h4">2. Bring-up failure and diagnosis</h3>
-						<p>The first board failed during bring-up, most likely from solder bridging on fine-pitch parts during hand assembly. A second population failed the same way, which pointed at the high-side driver in its 10-MSOP package, through either routing or soldering.</p>
-						<h3 class="h4">3. Redesign: synchronous buck</h3>
-						<p>The parts were expensive and a dead IC is hard to diagnose, so I chose a full redesign. The new board uses a synchronous buck topology with a half-bridge driver, which simplified the gate drive and cut cost.</p>
+						<h3 class="h4">4. Redesign: synchronous buck</h3>
+						<p>The new board uses a synchronous buck topology with a half-bridge driver, which simplified the gate drive and cut cost.</p>
 						<p>I also designed it to be debuggable. Scope test points, easy ground references, and 0&#8209;ohm resistor bridges let me bring up each subsection on its own before full power-on.</p>
 					</div>
 				</div>
-
-				<!-- Revisions -->
 				<div class="row">
 					<div class="col-md-12">
 						<figure class="project-figure">
-							<a href="plant_images2/PLANT_MPPT_PCB_Revisions_whiteback.jpg" class="image-popup">
-								<img src="plant_images2/PLANT_MPPT_PCB_Revisions_whiteback.jpg" class="img-responsive" alt="Progression of MPPT PCB revisions">
-							</a>
+							<a href="plant_images2/PLANT_MPPT_PCB_Revisions_whiteback.jpg" class="image-popup"><img src="plant_images2/PLANT_MPPT_PCB_Revisions_whiteback.jpg" alt="Progression of MPPT PCB revisions" class="img-responsive"></a>
 							<figcaption>Board revisions, first to final (click to enlarge)</figcaption>
 						</figure>
 					</div>
 				</div>
 			</div>
-			<!-- ============ END DESIGN STORY ============ -->
+			<!-- ============ END DESIGN PROCESS ============ -->
 
-			<!-- TODO (recommended): add a "Results" section here with a scope capture or
-			     a short table: measured output, sensing accuracy, efficiency, or MPPT
-			     tracking. And one line on what you'd do differently next revision. -->
+			<div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+			<!-- ============ SENSING AND SUPPORT BOARDS ============ -->
+			<div class="container project-section">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="fh5co-uppercase-heading-sm">Sensing and Support Boards</h2>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-5">
+						<figure class="project-figure">
+							<img src="plant_images2/sensing_render_4_3.jpg" alt="Current and voltage sensing breakout board render" class="img-responsive">
+							<figcaption>I-V sensing breakout, REV2</figcaption>
+						</figure>
+						<figure class="project-figure">
+							<a href="plant_images2/sensing_sch_full.png" class="image-popup"><img src="plant_images2/sensing_sch.png" alt="Current and voltage sensing schematic" class="img-responsive"></a>
+							<figcaption>Sensing schematic (click to enlarge)</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7">
+						<h3 class="h4">Current and voltage sensing</h3>
+						<p>I helped Lona Le develop the sensing board. Current is measured across a 50&nbsp;m&Omega; shunt by an INA299A3 current-sense amplifier, and a 10&nbsp;k&Omega;/750&nbsp;&Omega; divider scales the panel voltage (up to 42&nbsp;V) down to about 2.9&nbsp;V for the microcontroller's ADC.</p>
+						<h3 class="h4">What I learned: design from the controller back</h3>
+						<p>The parts were sound, but we chose a sensing circuit that worked rather than one sized for how the control loop would use it. The INA299A3 has a fixed gain of 100&nbsp;V/V, so the 50&nbsp;m&Omega; shunt gives 5&nbsp;V per amp. That reads 2.5&nbsp;V at 500&nbsp;mA, but passes a 3.3&nbsp;V ADC's range above about 0.66&nbsp;A and approaches the 5&nbsp;V rail near 1&nbsp;A.</p>
+						<p>In an MPPT system that regulates input voltage, output current can swing well past its nominal value, which saturates the amplifier just when the controller needs the measurement. We also didn't plan for switching noise coupling in from the converter.</p>
+						<p>Today I'd start from the ADC range and the control loop: set the gain for the worst-case current, filter and clamp the amplifier output at the ADC, and keep the sense path away from the switch node. It was my biggest lesson in hardware/software co-design.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5 col-md-push-7">
+						<figure class="project-figure">
+							<img src="charger_images/charger_rev1_render_4_3.jpg" alt="Battery charger board render" class="img-responsive">
+							<figcaption>Battery charger breakout</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7 col-md-pull-5">
+						<h3 class="h4">Battery charger</h3>
+						<p>We also built a single-cell Li-ion charger board around a linear charging IC. It worked, but a linear charger burns most of the power in heat when it steps down from a high-voltage bus, so the final system charged the battery directly from the converter instead. <a href="charger.html">Read the charger write-up &rarr;</a></p>
+						<h3 class="h4">Iterating on a four-month build</h3>
+						<p>We revised several of these breakout boards, but with a four-month schedule and two-week PCB lead times, every spin had to count. We chose which boards to iterate on and carried the remaining lessons into the final design.</p>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END SENSING AND SUPPORT BOARDS ============ -->
+
+			<!-- TODO (recommended): add a Results section with a scope capture or measurements, plus one line on what you'd change next revision. -->
 
 			<!-- ============ SKILLS ============ -->
 			<div class="container project-section">
@@ -234,7 +307,7 @@
 					</div>
 					<div class="col-md-4 col-sm-6">
 						<h3 class="h4">Schematic Capture &amp; Layout</h3>
-						<p>Altium Designer schematic and PCB layout, with LTspice verification of sensing and gate drive circuits.</p>
+						<p>Altium schematics and layouts for the converter, gate drivers, sensing, and charger boards, with LTspice verification.</p>
 					</div>
 					<div class="col-md-4 col-sm-6">
 						<h3 class="h4">PCB Bring-Up</h3>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>18650 Lithium Battery Charger Board &mdash; Marlon Buchanan</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="A single-cell 18650 Li-ion charger board built around the TPB4056 linear charger: datasheet-driven design, layout, a footprint lesson, and why the final system charged differently." />
+	<meta name="keywords" content="battery charger, Li-ion, 18650, TPB4056, linear charger, PCB design, Altium, footprint, decoupling" />
+	<meta name="author" content="Marlon Buchanan" />
+
+	<!-- Link previews (LinkedIn, email, Slack) -->
+	<meta property="og:title" content="18650 Lithium Battery Charger Board — Marlon Buchanan"/>
+	<meta property="og:image" content="https://marlongbs-git.github.io/website/charger_images/charger_4_3.jpg"/>
+	<meta property="og:url" content="https://marlongbs-git.github.io/website/charger.html"/>
+	<meta property="og:site_name" content="Marlon Buchanan"/>
+	<meta property="og:description" content="A single-cell 18650 Li-ion charger board built around the TPB4056 linear charger: datasheet-driven design, layout, a footprint lesson, and why the final system charged differently."/>
+	<meta name="twitter:title" content="18650 Lithium Battery Charger Board — Marlon Buchanan" />
+	<meta name="twitter:image" content="https://marlongbs-git.github.io/website/charger_images/charger_4_3.jpg" />
+	<meta name="twitter:url" content="https://marlongbs-git.github.io/website/charger.html" />
+	<meta name="twitter:card" content="summary_large_image" />
+
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<!-- Google Webfont -->
+	<link href='https://fonts.googleapis.com/css?family=PT+Mono' rel='stylesheet' type='text/css'>
+	<!-- Themify Icons -->
+	<link rel="stylesheet" href="css/themify-icons.css">
+	<!-- Icomoon Icons -->
+	<link rel="stylesheet" href="css/icomoon-icons.css">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<!-- Easy Responsive Tabs -->
+	<link rel="stylesheet" href="css/easy-responsive-tabs.css">
+	<!-- Theme Style -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Project page helpers (same block on every project page) -->
+	<style>
+		.project-back { display: inline-block; margin-bottom: 10px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+		.project-sub { font-size: 16px; opacity: .75; margin-top: -10px; }
+		.project-facts { margin: 0; padding: 0; list-style: none; }
+		.project-facts li { margin-bottom: 8px; }
+		.project-facts strong { display: inline-block; min-width: 70px; }
+		.project-figure { margin: 0 0 30px 0; }
+		.project-figure img { width: 100%; }
+		.project-figure figcaption { font-size: 13px; opacity: .7; margin-top: 8px; }
+		.project-section h2 { margin-top: 0; }
+		/* Every carousel slide is 4:3, whatever the image, so the slider never jumps in height */
+		.owl-carousel-fullwidth .item img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: #fff; }
+		.gallery-links { margin-top: 35px; }
+	</style>
+
+	<!--[if lte IE 9]>
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+		<header id="fh5co-header" role="banner">
+			<div class="container">
+				<div id="fh5co-logo">
+					<a href="index.html">
+						<img src="images/logo.png" alt="Marlon Buchanan logo">
+					</a>
+				</div>
+
+				<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+
+				<div id="fh5co-main-nav">
+					<nav id="fh5co-nav" role="navigation">
+						<ul>
+							<li>
+								<a href="index.html">Home</a>
+							</li>
+							<li class="fh5co-active">
+								<a href="projects.html">Projects</a>
+							</li>
+							<!-- Uncomment once these exist:
+							<li><a href="photography.html">Photography</a></li>
+							<li><a href="resume/Final_Year_Resume_gitpage_public.pdf" target="_blank">Resume</a></li>
+							-->
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<!-- Header -->
+
+		<main role="main">
+
+			<!-- ============ INTRO ============ -->
+			<div id="fh5co-intro">
+				<div class="container">
+					<a href="projects.html#hardware" class="project-back">&larr; All projects</a>
+					<h1>18650 Lithium Battery Charger Board</h1>
+					<p class="project-sub">Single-cell Li-ion charger breakout for the PLANT MPPT capstone</p>
+					<div class="row">
+						<div class="col-md-6 col-md-push-6 fh5co-intro-sub">
+							<p>A breakout board that charges a single 18650 lithium-ion cell from the MPPT converter's 25&nbsp;V output. It is built around the 3PEAK TPB4056A20, a linear charger IC, following the datasheet's typical application circuit.</p>
+							<p>The design was simple on purpose. The real value was in what went wrong during assembly, and in learning why a linear charger was the wrong fit for this system. <a href="PLANT.html">See the main MPPT project &rarr;</a></p>
+						</div>
+						<div class="col-md-6 col-md-pull-6">
+							<ul class="project-facts">
+								<!-- TODO: confirm your role on this board -->
+								<li><strong>Role</strong> Schematic, layout, and assembly</li>
+								<li><strong>Team</strong> Team PLANT capstone (board co-credited with Lona Le)</li>
+								<li><strong>When</strong> Spring 2026</li>
+								<li><strong>Parts</strong> TPB4056A20 linear charger, Keystone 1043P 18650 holder</li>
+								<li><strong>Tools</strong> Altium Designer</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END INTRO ============ -->
+
+			<!-- ============ GALLERY ============ -->
+			<div id="js-fh5co-slider">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="owl-carousel owl-carousel-fullwidth">
+								<div class="item"><img src="charger_images/charger_4_3.jpg" alt="3D render of the battery charger board"></div>
+								<div class="item"><img src="charger_images/charger_photo_4_3.jpg" alt="Assembled charger board with an 18650 cell"></div>
+								<div class="item"><img src="charger_images/charger_sch.png" alt="Battery charger schematic"></div>
+								<div class="item"><img src="charger_images/charger_layout_4_3.png" alt="Charger board layout with ground pour"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END GALLERY ============ -->
+
+			<div class="container">
+				<p class="text-center gallery-links"><a href="charger_images/charger_sch_full.png" class="image-popup">View the full schematic</a></p>
+			</div>
+
+			<div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+			<!-- ============ HIGHLIGHTS ============ -->
+			<div class="container project-section">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="fh5co-uppercase-heading-sm">Highlights</h2>
+						<ul>
+							<li>Set a 500&nbsp;mA charge current with R<sub>IREF</sub>&nbsp;=&nbsp;2.4&nbsp;k&Omega;, from the datasheet relation I<sub>BAT</sub>&nbsp;=&nbsp;1200&nbsp;/&nbsp;R<sub>IREF</sub></li>
+							<li>Set end-of-charge at 43&nbsp;mA with R<sub>IMIN</sub>&nbsp;=&nbsp;243&nbsp;k&Omega;, the nearest standard value to the 285.7&nbsp;k&Omega; the 35&nbsp;mA typical called for</li>
+							<li>Added charge-status and power-good LEDs on the open-drain outputs (10&nbsp;k&Omega;, about 2&nbsp;mA) and broke the status and enable pins out to a header for the microcontroller</li>
+							<li>Laid out a two-layer board with a solid ground plane on layer 2 and a ground pour on layer 1</li>
+							<li>Recovered from a footprint mistake by reworking in a substitute capacitor, then traced the root cause to an imperial/metric package mix-up</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END HIGHLIGHTS ============ -->
+
+			<div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+			<!-- ============ DESIGN PROCESS ============ -->
+			<div class="container project-section">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="fh5co-uppercase-heading-sm">Design Process</h2>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-5">
+						<figure class="project-figure">
+							<a href="charger_images/charger_sch_full.png" class="image-popup"><img src="charger_images/charger_sch.png" alt="Battery charger schematic" class="img-responsive"></a>
+							<figcaption>Charger schematic (click to enlarge)</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7">
+						<h3 class="h4">1. Designing from the datasheet</h3>
+						<p>The TPB4056A20 needs only a handful of parts, so I followed its typical application circuit and sized the two programming resistors from the datasheet equations.</p>
+						<p>The charge current is set by R<sub>IREF</sub>: 1200&nbsp;/&nbsp;500&nbsp;mA gives 2.4&nbsp;k&Omega;. The end-of-charge threshold is set by R<sub>IMIN</sub>: the 35&nbsp;mA typical calls for 285.7&nbsp;k&Omega;, and the 243&nbsp;k&Omega; standard value gives 43&nbsp;mA.</p>
+						<p>The open-drain PPR and CHG outputs drive status LEDs and also go to a header, along with the enable pin, so a microcontroller can read charge state and turn charging off.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5 col-md-push-7">
+						<figure class="project-figure">
+							<img src="charger_images/charger_layout_4_3.png" alt="Charger PCB layout" class="img-responsive">
+							<figcaption>Two-layer layout with the 18650 holder</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7 col-md-pull-5">
+						<h3 class="h4">2. Layout</h3>
+						<p>Layer 2 is a solid ground plane, and layer 1 carries a ground pour around the charger. The board is DC apart from the enable line, so I used thermal reliefs on the pours to make hand soldering easier without any real electrical cost.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5">
+						<figure class="project-figure">
+							<img src="charger_images/charger_photo_4_3.jpg" alt="Assembled charger with a through-hole capacitor reworked in" class="img-responsive">
+							<figcaption>Assembled board, with the through-hole substitute capacitor beside the charger IC</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7">
+						<h3 class="h4">3. The footprint mistake</h3>
+						<p>I mixed up 0402 imperial and 0402 metric when choosing a capacitor footprint. They are very different parts: 0402 imperial is about 1.0&nbsp;&times;&nbsp;0.5&nbsp;mm, while 0402 metric is only 0.4&nbsp;&times;&nbsp;0.2&nbsp;mm (01005 imperial). The capacitor couldn't be placed on its pads.</p>
+						<p>To keep the board usable, we fitted a through-hole capacitor with similar capacitance and voltage rating. It worked, but it isn't a true fix. The capacitor's leads add inductance and move it away from the IC's pins, which weakens the decoupling it is there to provide.</p>
+						<p>Now I check every footprint against the mechanical drawing in the datasheet and confirm whether a size code is imperial or metric before placing it.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5 col-md-push-7">
+						<figure class="project-figure">
+							<img src="charger_images/charger_rev1_render_4_3.jpg" alt="Battery charger board render" class="img-responsive">
+							<figcaption>Charger board render</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7 col-md-pull-5">
+						<h3 class="h4">4. Why the final system didn't use it</h3>
+						<p>The TPB4056 is a linear charger, so it regulates current by dropping the extra voltage across itself as heat. On paper, charging a 3.7&nbsp;V cell from the 25&nbsp;V bus at 500&nbsp;mA means dropping about 21&nbsp;V: roughly 10&nbsp;W of heat in the IC to deliver under 2&nbsp;W to the battery. In practice its over-temperature protection would cut charging long before that.</p>
+						<p>Wasting most of the harvested power defeats the point of an MPPT converter, so we charged the battery directly from the converter's output (unregulated) in the final system.</p>
+						<h3 class="h4">What I'd change</h3>
+						<p>Pick a switching charger, or let the MPPT converter manage charging itself, whenever the source voltage is far above the battery.</p>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END DESIGN PROCESS ============ -->
+
+			<!-- ============ SKILLS ============ -->
+			<div class="container project-section">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="fh5co-uppercase-heading-sm">Skills Used</h2>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<h3 class="h4">Datasheet-Driven Design</h3>
+						<p>Sizing programming resistors and status circuitry from IC datasheet equations.</p>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<h3 class="h4">PCB Layout</h3>
+						<p>Two-layer layout with ground planes and pours, and an 18650 holder footprint.</p>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<h3 class="h4">Assembly &amp; Rework</h3>
+						<p>Hand assembly, diagnosing a footprint error, and reworking a substitute part.</p>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END SKILLS ============ -->
+
+			<div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+			<div class="container">
+				<a href="projects.html#hardware" class="project-back">&larr; All projects</a>
+			</div>
+
+			<div class="fh5co-spacer fh5co-spacer-md"></div>
+
+		</main>
+
+		<footer id="fh5co-footer" role="contentinfo">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-push-6 col-md-6">
+						<ul class="fh5co-footer-social">
+							<li><a href="mailto:marlongeorgebuchanan@gmail.com">Email</a></li>
+							<li><a href="https://www.linkedin.com/in/marlongb/">LinkedIn</a></li>
+							<li><a href="https://github.com/marlongbs-git">GitHub</a></li>
+						</ul>
+						<p class="fh5co-copyright">
+							<small>&copy; 2026 Marlon Buchanan. All Rights Reserved.<br>
+							Designed with: <a href="http://freehtml5.co/">freehtml5.co</a></small>
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Go To Top -->
+		<a href="#" class="fh5co-gotop"><i class="ti-shift-left"></i></a>
+
+		<!-- jQuery -->
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<!-- jQuery Easing -->
+		<script src="js/jquery.easing.1.3.js"></script>
+		<!-- Bootstrap -->
+		<script src="js/bootstrap.js"></script>
+		<!-- Owl carousel -->
+		<script src="js/owl.carousel.min.js"></script>
+		<!-- Magnific Popup -->
+		<script src="js/jquery.magnific-popup.min.js"></script>
+		<!-- Easy Responsive Tabs -->
+		<script src="js/easyResponsiveTabs.js"></script>
+		<!-- FastClick for Mobile/Tablets -->
+		<script src="js/fastclick.js"></script>
+		<!-- Velocity -->
+		<script src="js/velocity.min.js"></script>
+
+		<!-- Main JS -->
+		<script src="js/main.js"></script>
+
+	</body>
+</html>

@@ -66,6 +66,12 @@
 		.home-cols > div { flex: 1 1 300px; min-width: 0; }
 		.home-list { list-style: none; margin: 0; padding: 0; }
 		.home-list li { margin-bottom: 10px; font-size: 16px; }
+		.home-now { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; padding: 20px 0; border-top: 1px solid #dcdcdc; color: inherit; text-decoration: none !important; }
+		.home-now img { width: 150px; max-width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+		.home-now-text { flex: 1 1 320px; min-width: 0; }
+		.home-now-text p { margin: 0; line-height: 1.55; }
+		.home-now .home-label { margin: 0 0 6px; }
+		.home-now:hover .home-now-link { text-decoration: underline; }
 	</style>
 
 	<!--[if lte IE 9]>
@@ -114,7 +120,7 @@
 							<p class="home-pitch">I design embedded hardware: schematics, PCB layout, board bring-up, and the control firmware that runs on it.</p>
 						</div>
 						<div class="col-md-5">
-							<p>Senior Sustainable Energy Engineering student at SFU. I've built a self-balancing robot on STM32 and led the electronics for an MPPT solar converter in my capstone. My mechanical design background means I can take a board all the way into a working physical system.</p>
+							<p>Senior Sustainable Energy Engineering student at SFU. I've built a self-balancing robot on STM32, led the electronics for an MPPT solar converter in my capstone, and I'm currently designing a 60&nbsp;W synchronous buck converter for my power electronics course. My mechanical design background means I can take a board all the way into a working physical system.</p>
 							<p>Looking for hardware design co-op roles.</p>
 							<div class="home-buttons">
 								<a href="mailto:marlongeorgebuchanan@gmail.com" class="home-btn home-btn-dark">Email me</a>
@@ -127,6 +133,18 @@
 			<!-- ============ END INTRO ============ -->
 
 			<div class="container">
+
+				<!-- ============ CURRENTLY BUILDING ============
+				     When testing is done: delete this block and add the buck converter as a featured card below,
+				     leading with the measured result (e.g. "[ ]% efficient at full load"). -->
+				<a href="buck.html" class="home-now">
+					<img src="buck_images/buck_rev2_4_3.jpg" alt="Rev 2 layout of the 60 W buck converter">
+					<div class="home-now-text">
+						<h2 class="home-label">Currently building</h2>
+						<p>A 60&nbsp;W synchronous buck converter (TI LM3150). Boards are in, and I'm comparing two layouts on the bench. <span class="home-now-link">See the design &rarr;</span></p>
+					</div>
+				</a>
+				<!-- ============ END CURRENTLY BUILDING ============ -->
 
 				<!-- ============ FEATURED ============ -->
 				<section class="home-section">
@@ -155,6 +173,7 @@
 					<div>
 						<h2 class="home-label">More hardware</h2>
 						<ul class="home-list">
+							<li><a href="buck.html">60 W Synchronous Buck Converter</a> <em>(in progress)</em></li>
 							<li><a href="stm32.html">STM32F4 Breakout Board with IMU</a></li>
 							<li><a href="batterycharger.html">18650 Battery Charger Board</a></li>
 							<li><a href="spin.html">Solar Cell Testing Fixture</a></li>
@@ -174,8 +193,7 @@
 				<section class="home-section home-cols">
 					<div>
 						<h2 class="home-label">Outside the lab</h2>
-						<!-- When photography.html exists, add: <a href="photography.html">See the photos &rarr;</a> -->
-						<p>I lift, run, and play volleyball, and I shoot street and travel photography.</p>
+						<p>I lift, run, and play volleyball, and I shoot street and travel photography. <a href="photography.html">See the photos &rarr;</a></p>
 					</div>
 					<div>
 						<h2 class="home-label">Let's chat</h2>

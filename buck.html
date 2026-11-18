@@ -256,7 +256,7 @@
 					</div>
 					<div class="col-md-7">
 						<h3 class="h4">5. Simulating before building</h3>
-						<p>Aidan built a transient model of the converter in PSpice, using TI's LM3150 model with our component values. With 24&nbsp;V in and a 2.4&nbsp;&Omega; load, the output settles at 11.94&nbsp;V and the load draws 4.98&nbsp;A, within about 1% of the 12&nbsp;V, 5&nbsp;A target. That confirmed the on-time, feedback, and power-stage values worked together before we committed to a board.</p>
+						<p>Aidan built a transient model of the converter in PSpice, using TI's LM3150 model with near-final component values: the same R<sub>ON</sub>, inductor, feed-forward capacitor, and current-limit setting as the board. The feedback divider is scaled to 191&nbsp;k&Omega; / 10&nbsp;k&Omega;, which has the same ratio as the board's 95.3&nbsp;k&Omega; / 4.99&nbsp;k&Omega; and sets the same output. With 24&nbsp;V in and a 2.4&nbsp;&Omega; load, the output settles at 11.94&nbsp;V and the load draws 4.98&nbsp;A, within about 1% of the 12&nbsp;V, 5&nbsp;A target. That confirmed the on-time, feedback, and power-stage values worked together before we committed to a board.</p>
 					</div>
 				</div>
 				<div class="row">

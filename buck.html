@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>60 W Synchronous Buck Converter &mdash; Marlon Buchanan</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="A 60 W, 24 V to 12 V synchronous buck converter built around TI's LM3150 constant-on-time controller: a validated component-sizing calculator, the schematic, and three 4-layer PCB layout revisions." />
+	<meta name="keywords" content="buck converter, synchronous buck, LM3150, constant on-time, power electronics, PCB layout, Altium, MOSFET selection, SFU" />
+	<meta name="author" content="Marlon Buchanan" />
+
+	<!-- Link previews (LinkedIn, email, Slack) -->
+	<meta property="og:title" content="60 W Synchronous Buck Converter — Marlon Buchanan"/>
+	<meta property="og:image" content="https://marlongbs-git.github.io/website/buck_images/buck_rev2_4_3.jpg"/>
+	<meta property="og:url" content="https://marlongbs-git.github.io/website/buck.html"/>
+	<meta property="og:site_name" content="Marlon Buchanan"/>
+	<meta property="og:description" content="A 60 W, 24 V to 12 V synchronous buck converter built around TI's LM3150 constant-on-time controller: a validated component-sizing calculator, the schematic, and three 4-layer PCB layout revisions."/>
+	<meta name="twitter:title" content="60 W Synchronous Buck Converter — Marlon Buchanan" />
+	<meta name="twitter:image" content="https://marlongbs-git.github.io/website/buck_images/buck_rev2_4_3.jpg" />
+	<meta name="twitter:url" content="https://marlongbs-git.github.io/website/buck.html" />
+	<meta name="twitter:card" content="summary_large_image" />
+
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<!-- Google Webfont -->
+	<link href='https://fonts.googleapis.com/css?family=PT+Mono' rel='stylesheet' type='text/css'>
+	<!-- Themify Icons -->
+	<link rel="stylesheet" href="css/themify-icons.css">
+	<!-- Icomoon Icons -->
+	<link rel="stylesheet" href="css/icomoon-icons.css">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<!-- Easy Responsive Tabs -->
+	<link rel="stylesheet" href="css/easy-responsive-tabs.css">
+	<!-- Theme Style -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Project page helpers (same block on every project page) -->
+	<style>
+		.project-back { display: inline-block; margin-bottom: 10px; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+		.project-sub { font-size: 16px; opacity: .75; margin-top: -10px; }
+		.project-facts { margin: 0; padding: 0; list-style: none; }
+		.project-facts li { margin-bottom: 8px; }
+		.project-facts strong { display: inline-block; min-width: 70px; }
+		.project-figure { margin: 0 0 30px 0; }
+		.project-figure img { width: 100%; }
+		.project-figure figcaption { font-size: 13px; opacity: .7; margin-top: 8px; }
+		.project-section h2 { margin-top: 0; }
+		/* Every carousel slide is 4:3, whatever the image, so the slider never jumps in height */
+		.owl-carousel-fullwidth .item img { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; background: #fff; }
+		.gallery-links { margin-top: 35px; }
+		.spec-table { width: 100%; max-width: 760px; border-collapse: collapse; font-size: 15px; }
+		.spec-table th, .spec-table td { text-align: left; vertical-align: top; padding: 9px 14px 9px 0; border-bottom: 1px solid #e3e3e3; }
+		.spec-table th { width: 34%; font-weight: 600; white-space: nowrap; }
+		.spec-wrap { overflow-x: auto; }
+	</style>
+
+	<!--[if lte IE 9]>
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	</head>
+	<body>
+
+		<!-- Header -->
+		<header id="fh5co-header" role="banner">
+			<div class="container">
+				<div id="fh5co-logo">
+					<a href="index.html">
+						<img src="images/logo.png" alt="Marlon Buchanan logo">
+					</a>
+				</div>
+
+				<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+
+				<div id="fh5co-main-nav">
+					<nav id="fh5co-nav" role="navigation">
+						<ul>
+							<li>
+								<a href="index.html">Home</a>
+							</li>
+							<li class="fh5co-active">
+								<a href="projects.html">Projects</a>
+							</li>
+							<li>
+								<a href="photography.html">Photography</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</header>
+		<!-- Header -->
+
+		<main role="main">
+
+			<!-- ============ INTRO ============ -->
+			<div id="fh5co-intro">
+				<div class="container">
+					<a href="projects.html#hardware" class="project-back">&larr; All projects</a>
+					<h1>60 W Synchronous Buck Converter</h1>
+					<p class="project-sub">SEE 476 Advanced Power Electronics: 24&nbsp;V to 12&nbsp;V at 5&nbsp;A with the TI LM3150</p>
+					<div class="row">
+						<div class="col-md-6 col-md-push-6 fh5co-intro-sub">
+							<p>A 60&nbsp;W synchronous buck converter that steps a 24&nbsp;V bus down to 12&nbsp;V at 5&nbsp;A, designed for SEE&nbsp;476 (Advanced Power Electronics) at SFU. It's built around TI's LM3150, a constant-on-time controller that drives two external MOSFETs, so we sized and laid out the entire power stage ourselves instead of relying on an integrated module.</p>
+							<p>I owned the LM3150 schematic, the component-sizing calculator, and all three PCB layouts. All three revisions are fabricated, and we're populating Rev 1 and Rev 2 to compare the two layouts on the bench. <a href="#testing">Testing status &darr;</a></p>
+						</div>
+						<div class="col-md-6 col-md-pull-6">
+							<ul class="project-facts">
+								<li><strong>Role</strong> LM3150 schematic, sizing calculator, PCB layout (3 revisions)</li>
+								<li><strong>Team</strong> Jacob Fu (protection, connectors, calculator verification), Aidan Yun (PSpice model)</li>
+								<li><strong>When</strong> Fall 2026</li>
+								<li><strong>Status</strong> All revisions fabricated; populating Rev 1 and Rev 2 for testing</li>
+								<li><strong>Tools</strong> Altium Designer, Excel, PSpice for TI</li>
+								<!-- When the GitHub repo is up, uncomment: <li><strong>Files</strong> <a href="https://github.com/marlongbs-git/REPO-NAME" target="_blank">Schematics, layouts and calculator on GitHub</a></li> -->
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END INTRO ============ -->
+
+			<!-- ============ GALLERY ============ -->
+			<div id="js-fh5co-slider">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="owl-carousel owl-carousel-fullwidth">
+								<div class="item"><img src="buck_images/buck_rev2_4_3.jpg" alt="3D render of the Rev 2 buck converter board"></div>
+								<div class="item"><img src="buck_images/buck_sch_left.png" alt="LM3150 schematic with the design calculations annotated beside it"></div>
+								<div class="item"><img src="buck_images/buck_sch_right.png" alt="Output stage schematic: polymer bulk capacitor, optional ceramics, and the ripple-injection network"></div>
+								<div class="item"><img src="buck_images/buck_rev1_4_3.jpg" alt="3D render of the Rev 1 layout, based on TI's evaluation board"></div>
+								<div class="item"><img src="buck_images/buck_rev3_4_3.jpg" alt="3D render of the Rev 3 layout with do-not-populate ripple-injection footprints"></div>
+								<div class="item"><img src="buck_images/buck_sch_protection.png" alt="Input and output protection schematic"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END GALLERY ============ -->
+
+			<div class="container">
+				<p class="text-center gallery-links"><a href="buck_images/buck_sch_full.png" class="image-popup">View the full annotated schematic</a> &nbsp;&middot;&nbsp; <a href="buck_images/buck_sch_protection_full.png" class="image-popup">Protection schematic</a></p>
+			</div>
+
+			<div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+			<!-- ============ HIGHLIGHTS ============ -->
+			<div class="container project-section">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="fh5co-uppercase-heading-sm">Highlights</h2>
+						<!-- After testing: add measured full-load efficiency and ripple as the FIRST highlight, e.g. 'Measured [ ]% efficiency at full load and [ ] mVpp ripple; Rev 2 ran [ ] cooler than Rev 1'. -->
+						<ul>
+							<li>Built a component-sizing calculator from the LM3150 datasheet's design procedure, with a PASS/FAIL check on every constraint. We validated it against the datasheet's own worked example (27 of 31 values match; the 4 mismatches trace to inconsistencies in the datasheet itself) and cross-checked it against TI's own LM3150 calculator</li>
+							<li>Compared three MOSFETs in the calculator and picked the one with the <em>highest</em> R<sub>DS(on)</sub>: at 24&nbsp;V and 278&nbsp;kHz, switching and gate-drive losses dominate, so it cut estimated FET losses from 1.15&nbsp;W to 0.50&nbsp;W, about a 1-point efficiency gain at 60&nbsp;W</li>
+							<li>Redesigned the layout from TI's reference into a straight-line, 4-layer board with 35% less area (85 &times; 72.5&nbsp;mm to 100 &times; 40&nbsp;mm), a smaller switch node, and tighter input and output current loops</li>
+							<li>Fabricated both layouts so they can be compared on the bench with identical parts, plus a third revision with do-not-populate footprints for an alternate ripple-injection network</li>
+							<li>Sized the output capacitor bank inside the controller's ESR window, and annotated the schematic with the design math behind every value</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END HIGHLIGHTS ============ -->
+
+			<div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+			<!-- ============ SPECIFICATIONS ============ -->
+			<div class="container project-section">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="fh5co-uppercase-heading-sm">Design Specifications</h2>
+						<div class="spec-wrap">
+							<table class="spec-table">
+								<tbody>
+								<tr><th scope="row">Input</th><td>18&ndash;24&nbsp;V (24&nbsp;V nominal)</td></tr>
+								<tr><th scope="row">Output</th><td>12&nbsp;V at 5&nbsp;A continuous (60&nbsp;W)</td></tr>
+								<tr><th scope="row">Controller</th><td>TI LM3150: constant on-time (COT) with emulated ripple mode</td></tr>
+								<tr><th scope="row">Switching frequency</th><td>278&nbsp;kHz, set by R<sub>ON</sub> = 402&nbsp;k&Omega;</td></tr>
+								<tr><th scope="row">MOSFETs</th><td>2&times; onsemi NTMFS5C673NL (60&nbsp;V)</td></tr>
+								<tr><th scope="row">Inductor</th><td>15&nbsp;&micro;H, 6.5&nbsp;A rated, 9.8&nbsp;A saturation; 1.44&nbsp;A ripple at 24&nbsp;V</td></tr>
+								<tr><th scope="row">Output capacitors</th><td>100&nbsp;&micro;F polymer (65&nbsp;m&Omega; ESR) + 3&times; 22&nbsp;&micro;F ceramic</td></tr>
+								<tr><th scope="row">Current limit</th><td>6&nbsp;A target, valley-sensed through the low-side FET's R<sub>DS(on)</sub></td></tr>
+								<tr><th scope="row">Soft-start</th><td>5.3&nbsp;ms (68&nbsp;nF)</td></tr>
+								<tr><th scope="row">Protection</th><td>Input and output fuses, input TVS, P-channel MOSFET reverse-polarity protection</td></tr>
+								<tr><th scope="row">PCB</th><td>4 layers (signal / GND / GND / signal), ground pours on both inner layers</td></tr>
+								<tr><th scope="row">Board size</th><td>Rev 1: 85 &times; 72.5&nbsp;mm &middot; Rev 2/3: 100 &times; 40&nbsp;mm (35% less area, 1.5&nbsp;W/cm&sup2;)</td></tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END SPECIFICATIONS ============ -->
+
+			<div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+			<!-- ============ DESIGN PROCESS ============ -->
+			<div class="container project-section">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="fh5co-uppercase-heading-sm">Design Process</h2>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-5">
+						<figure class="project-figure">
+							<a href="buck_images/buck_sch_full.png" class="image-popup"><img src="buck_images/buck_sch_left.png" alt="LM3150 schematic with design calculations" class="img-responsive"></a>
+							<figcaption>LM3150 schematic with the design math beside each part (click to enlarge the full sheet)</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7">
+						<h3 class="h4">1. Choosing the controller</h3>
+						<p>We started by comparing integrated buck ICs (TI LMQ61460, Vishay SiC462, MPS MPQ4436) on input headroom, package, and documentation. At our instructor's suggestion, we switched to a controller with external MOSFETs. That meant designing the power stage ourselves, and being able to probe and analyze every part of it.</p>
+						<p>We chose TI's LM3150: a 6&ndash;42&nbsp;V synchronous controller with a PSpice model, an evaluation board, and a full design procedure. It uses constant-on-time control, which responds fast but needs some ripple at the feedback pin to decide when to switch. The LM3150 emulates that ripple by sensing the low-side FET, which relaxes the output capacitor ESR requirement but doesn't remove it.</p>
+						<h3 class="h4">2. A sizing calculator we could trust</h3>
+						<p>I turned the datasheet's design procedure into a spreadsheet: design inputs at the top, every value computed from its datasheet equation, and a PASS/FAIL check on each constraint, including frequency limits, the ESR window, the gate-charge budget, FET power, and soft-start time.</p>
+						<p>Before trusting it, Jacob and I made it reproduce the datasheet's worked example. 27 of 31 values matched, and the four mismatches came from the datasheet itself. For example, its printed current-limit value can't be reproduced from its own equations. Aidan also cross-checked our results against TI's own LM3150 Excel calculator. The checking caught real errors before ordering, such as a feed-forward capacitor formula that gave about 11&nbsp;nF instead of about 500&nbsp;pF.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5 col-md-push-7">
+						<figure class="project-figure">
+							<a href="buck_images/buck_sch_full.png" class="image-popup"><img src="buck_images/buck_sch_right.png" alt="Output stage schematic with the ESR window calculation" class="img-responsive"></a>
+							<figcaption>Output stage and ESR-window math, with the R<sub>r</sub>/C<sub>r</sub>/C<sub>ac</sub> ripple-injection network (click to enlarge the full sheet)</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7 col-md-pull-5">
+						<h3 class="h4">3. Picking MOSFETs by where the loss actually is</h3>
+						<p>I compared three MOSFETs in the calculator. The intuitive pick is the lowest R<sub>DS(on)</sub>, but at 24&nbsp;V and 278&nbsp;kHz the high-side FET's loss is dominated by switching, which scales with gate charge. The onsemi NTMFS5C673NL has about four times the on-resistance of the lowest-resistance candidate, but a gate-drain charge of 0.8&nbsp;nC against 7&nbsp;nC. Its high-side switching loss came out about 9 times lower (0.08&nbsp;W vs 0.72&nbsp;W).</p>
+						<p>Gate charge costs twice on this controller: the LM3150 powers its gate drivers from a linear regulator off the 24&nbsp;V input, so every nanocoulomb switched also burns V<sub>IN</sub> &times; Q<sub>g</sub> &times; f<sub>s</sub>. Counting both FETs and the gate drive, the NTMFS5C673NL totals about 0.50&nbsp;W, against 1.15&nbsp;W and 1.68&nbsp;W for the other two candidates.</p>
+						<h3 class="h4">4. Living inside the ESR window</h3>
+						<p>COT control puts the output capacitors in a narrow window. Too little ESR and the loop doesn't see enough ripple. Too much and the ripple trips the controller's overvoltage protection. Our first bank, two 82&nbsp;&micro;F polymer capacitors in parallel, landed at 14&nbsp;m&Omega;, right at the bottom edge. I replaced it with a single 100&nbsp;&micro;F polymer capacitor whose 65&nbsp;m&Omega; ESR sits mid-window, plus three 22&nbsp;&micro;F ceramics for capacitance.</p>
+						<p>The catch is that ceramics in parallel shunt the ripple away from the polymer's ESR. With all three fitted, the loop sees an effective ESR of only a few milliohms. So the ceramics are optional on the bench: bring-up starts with the polymer alone, and ceramics get added one at a time while the switch node is watched for jitter.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5">
+						<figure class="project-figure">
+							<a href="buck_images/buck_pspice_startup.png" class="image-popup"><img src="buck_images/buck_pspice_startup.png" alt="PSpice transient simulation of output voltage and load current at startup" class="img-responsive"></a>
+							<figcaption>PSpice transient (Aidan Yun): output voltage (green) settles at 11.94&nbsp;V and load current (red) at 4.98&nbsp;A</figcaption>
+						</figure>
+						<figure class="project-figure">
+							<a href="buck_images/buck_pspice_schematic.png" class="image-popup"><img src="buck_images/buck_pspice_schematic.png" alt="PSpice schematic built on TI's LM3150 transient model" class="img-responsive"></a>
+							<figcaption>Simulation schematic built on TI's LM3150 transient model</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7">
+						<h3 class="h4">5. Simulating before building</h3>
+						<p>Aidan built a transient model of the converter in PSpice, using TI's LM3150 model with our component values. With 24&nbsp;V in and a 2.4&nbsp;&Omega; load, the output settles at 11.94&nbsp;V and the load draws 4.98&nbsp;A, within about 1% of the 12&nbsp;V, 5&nbsp;A target. That confirmed the on-time, feedback, and power-stage values worked together before we committed to a board.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5 col-md-push-7">
+						<figure class="project-figure">
+							<img src="buck_images/buck_rev1_4_3.jpg" alt="Rev 1 layout render" class="img-responsive">
+							<figcaption>Rev 1: placement based on TI's evaluation board, 85 &times; 72.5&nbsp;mm</figcaption>
+						</figure>
+						<figure class="project-figure">
+							<img src="buck_images/buck_rev2_4_3.jpg" alt="Rev 2 layout render" class="img-responsive">
+							<figcaption>Rev 2: straight-line power path, 100 &times; 40&nbsp;mm</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7 col-md-pull-5">
+						<h3 class="h4">6. Layout: from reference design to my own</h3>
+						<p>All three revisions are 4-layer boards (signal / ground / ground / signal) with copper pours on both inner layers. Rev 1 followed the placement of TI's LM3150 evaluation board closely, which made it a safe, known-good starting point.</p>
+						<p>For Rev 2, I reworked the layout around the current paths. Power flows in a straight line: input connector, protection, input capacitors, FETs, inductor, output capacitors, output connector. I shrank the switch-node copper, routed traces only as wide as the package pads, and dropped vias straight into the inner ground pours to minimize the input and output current loops. The controller sits just below the FETs for short gate-drive traces.</p>
+						<p>Trace widths came from a trace-width calculator for our copper weight, sized for 2.5&nbsp;A at the input and 5&nbsp;A at the output without excess heating. The result is 35% less board area: from 85 &times; 72.5&nbsp;mm to 100 &times; 40&nbsp;mm, or 1.5&nbsp;W/cm&sup2; at full power.</p>
+						<p>We fabricated both, and we're building Rev 1 and Rev 2 with identical parts so the bench comparison isolates the layout.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<figure class="project-figure">
+							<a href="buck_images/buck_copper_compare.png" class="image-popup"><img src="buck_images/buck_copper_compare.png" alt="Top-layer copper of Rev 1 and Rev 2 drawn at the same scale" class="img-responsive"></a>
+							<figcaption>Top copper, drawn to the same scale. Rev 1 floods most of the board. Rev 2 keeps copper to the current paths, with via fields into the inner ground layers beside each power pad and a smaller switch node (pink). Click to enlarge.</figcaption>
+						</figure>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5">
+						<figure class="project-figure">
+							<img src="buck_images/buck_rev3_4_3.jpg" alt="Rev 3 layout render" class="img-responsive">
+							<figcaption>Rev 3: Rev 2 plus do-not-populate footprints for R<sub>r</sub>, C<sub>r</sub>, and C<sub>ac</sub></figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7">
+						<h3 class="h4">7. A tunable variant</h3>
+						<p>Rev 3 is Rev 2 with a contingency. With a 12&nbsp;V output and a low-R<sub>DS(on)</sub> low-side FET, the ripple the LM3150 emulates can end up small, especially once the output ceramics shunt the polymer's ESR. TI's evaluation-board guide describes an alternate ripple-injection network that fixes this: a resistor and capacitor (R<sub>r</sub>, C<sub>r</sub>) from the switch node to the output, coupled into the feedback pin through C<sub>ac</sub>.</p>
+						<p>Rev 3 has footprints for that network, marked do-not-populate. We had it fabricated but aren't populating it for now. It's the board to reach for if we need the lower ripple of fully populated ceramics and the loop needs help to stay stable.</p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-5 col-md-push-7">
+						<figure class="project-figure">
+							<img src="buck_images/buck_sch_protection.png" alt="Input and output protection schematic" class="img-responsive">
+							<figcaption>Input and output protection (designed by Jacob Fu; click the link under the gallery to enlarge)</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7 col-md-pull-5">
+						<h3 class="h4">8. Protection front end</h3>
+						<p>Jacob designed the input and output protection and connectors: time-delay fuses on both sides to ride through capacitor inrush, a TVS diode for input transients, and a P-channel MOSFET for reverse-polarity protection. The MOSFET dissipates about 0.1&nbsp;W at full load, far less than a series diode would.</p>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END DESIGN PROCESS ============ -->
+
+			<div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+			<!-- ============ BRING-UP AND TESTING ============ -->
+			<div class="container project-section" id="testing">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="fh5co-uppercase-heading-sm">Bring-Up and Testing</h2>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-5">
+						<figure class="project-figure">
+							<a href="buck_images/buck_testpoints.png" class="image-popup"><img src="buck_images/buck_testpoints.png" alt="Layout close-up of the test points next to the LM3150" class="img-responsive"></a>
+							<figcaption>Test points beside the controller: VCC, soft-start, feedback, and enable</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7">
+						<!-- STATUS: once testing is done, delete these first two paragraphs and uncomment the result blocks below. -->
+						<h3 class="h4">Status: boards in hand, populating Rev 1 and Rev 2</h3>
+						<p>All three revisions are fabricated. We're building Rev 1 and Rev 2 with identical parts, so any difference we measure comes from the layout alone. Rev 3 stays unpopulated unless the loop needs its ripple-injection network.</p>
+						<p>Bring-up starts on a current-limited supply. I'll check VCC at TP1, watch the soft-start ramp at TP2 to know when the converter is ready to load, and confirm the feedback node at TP3 settles at 0.6&nbsp;V. Then the load steps up to 5&nbsp;A. We'll measure efficiency across load, output ripple, switch-node ringing, load-step response, and temperature on both boards.</p>
+					</div>
+				</div>
+
+				<!-- ================= RESULTS TEMPLATE =================
+				     Uncomment each block as you fill it in. Put images in buck_images/ using the file names below
+				     (or change the src). Export scope captures as PNG; any size works, and wide images are fine.
+				     ===================================================== -->
+
+				<!-- ===== A. REV 1 vs REV 2 COMPARISON TABLE (replace every [ ] with a measurement) =====
+				<div class="row">
+					<div class="col-md-12">
+						<h3 class="h4">Rev 1 vs Rev 2 on the bench</h3>
+						<p>Same parts, same test setup: 24&nbsp;V input, 12&nbsp;V output, measured at [room temperature].</p>
+						<div class="spec-wrap">
+							<table class="spec-table">
+								<thead>
+									<tr><th scope="col">Measurement</th><th scope="col">Rev 1 (eval-board layout)</th><th scope="col">Rev 2 (my layout)</th></tr>
+								</thead>
+								<tbody>
+									<tr><th scope="row">Efficiency at 5&nbsp;A</th><td>[ ]&nbsp;%</td><td>[ ]&nbsp;%</td></tr>
+									<tr><th scope="row">Efficiency at 2.5&nbsp;A</th><td>[ ]&nbsp;%</td><td>[ ]&nbsp;%</td></tr>
+									<tr><th scope="row">Output ripple at 5&nbsp;A</th><td>[ ]&nbsp;mVpp</td><td>[ ]&nbsp;mVpp</td></tr>
+									<tr><th scope="row">Switch-node overshoot / ringing</th><td>[ ]&nbsp;V at [ ]&nbsp;MHz</td><td>[ ]&nbsp;V at [ ]&nbsp;MHz</td></tr>
+									<tr><th scope="row">Load step [ ]&nbsp;A &rarr; [ ]&nbsp;A</th><td>[ ]&nbsp;mV, recovers in [ ]&nbsp;&micro;s</td><td>[ ]&nbsp;mV, recovers in [ ]&nbsp;&micro;s</td></tr>
+									<tr><th scope="row">Hottest part at 5&nbsp;A</th><td>[ ]&nbsp;&deg;C ([part])</td><td>[ ]&nbsp;&deg;C ([part])</td></tr>
+									<tr><th scope="row">Measured current limit</th><td>[ ]&nbsp;A</td><td>[ ]&nbsp;A</td></tr>
+									<tr><th scope="row">Board area</th><td>61.6&nbsp;cm&sup2;</td><td>40.0&nbsp;cm&sup2;</td></tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+				===== end A ===== -->
+
+				<!-- ===== B. EFFICIENCY CURVE (buck_images/test_efficiency.png) =====
+				<div class="row">
+					<div class="col-md-5">
+						<figure class="project-figure">
+							<a href="buck_images/test_efficiency.png" class="image-popup"><img src="buck_images/test_efficiency.png" alt="Measured efficiency versus load current for Rev 1 and Rev 2" class="img-responsive"></a>
+							<figcaption>Efficiency vs load at 24&nbsp;V input</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7">
+						<h3 class="h4">Efficiency</h3>
+						<p>[Peak efficiency, where it peaks, and full-load efficiency. Compare with the roughly 97% predicted from the loss budget, and say where the difference likely went.]</p>
+					</div>
+				</div>
+				===== end B ===== -->
+
+				<!-- ===== C. SCOPE CAPTURES (buck_images/test_ripple.png and test_sw_node.png) =====
+				<div class="row">
+					<div class="col-md-5 col-md-push-7">
+						<figure class="project-figure">
+							<a href="buck_images/test_ripple.png" class="image-popup"><img src="buck_images/test_ripple.png" alt="Oscilloscope capture of output ripple at full load" class="img-responsive"></a>
+							<figcaption>Output ripple at 5&nbsp;A</figcaption>
+						</figure>
+						<figure class="project-figure">
+							<a href="buck_images/test_sw_node.png" class="image-popup"><img src="buck_images/test_sw_node.png" alt="Oscilloscope capture of the switch node" class="img-responsive"></a>
+							<figcaption>Switch node, Rev 1 vs Rev 2</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7 col-md-pull-5">
+						<h3 class="h4">Ripple and switching</h3>
+						<p>[Ripple measured against the prediction: about 94&nbsp;mVpp with C6 alone, and lower with the ceramics fitted. Did the loop stay stable as each ceramic went on?]</p>
+						<p>[Switch-node ringing on each layout. This is where the smaller Rev 2 hot loop should show up.]</p>
+					</div>
+				</div>
+				===== end C ===== -->
+
+				<!-- ===== D. LOAD STEP + STARTUP (buck_images/test_load_step.png and test_startup.png) =====
+				<div class="row">
+					<div class="col-md-5">
+						<figure class="project-figure">
+							<a href="buck_images/test_load_step.png" class="image-popup"><img src="buck_images/test_load_step.png" alt="Oscilloscope capture of the load-step response" class="img-responsive"></a>
+							<figcaption>Load step from [ ]&nbsp;A to [ ]&nbsp;A</figcaption>
+						</figure>
+						<figure class="project-figure">
+							<a href="buck_images/test_startup.png" class="image-popup"><img src="buck_images/test_startup.png" alt="Oscilloscope capture of soft-start" class="img-responsive"></a>
+							<figcaption>Soft-start ramp measured at TP2</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7">
+						<h3 class="h4">Transient response and startup</h3>
+						<p>[Load-step deviation and recovery time. Constant-on-time control should recover within a few switching cycles.]</p>
+						<p>[Measured soft-start time vs the 5.3&nbsp;ms design value.]</p>
+					</div>
+				</div>
+				===== end D ===== -->
+
+				<!-- ===== E. THERMAL IMAGE (optional, buck_images/test_thermal.jpg) =====
+				<div class="row">
+					<div class="col-md-5 col-md-push-7">
+						<figure class="project-figure">
+							<a href="buck_images/test_thermal.jpg" class="image-popup"><img src="buck_images/test_thermal.jpg" alt="Thermal image of the board at full load" class="img-responsive"></a>
+							<figcaption>Thermal image at 5&nbsp;A after [ ]&nbsp;minutes</figcaption>
+						</figure>
+					</div>
+					<div class="col-md-7 col-md-pull-5">
+						<h3 class="h4">Thermals</h3>
+						<p>[Hottest component and temperature. The loss budget predicts the inductor's winding resistance (about 0.65&nbsp;W) as the largest single loss.]</p>
+					</div>
+				</div>
+				===== end E ===== -->
+
+				<!-- ===== F. LESSONS AND WHAT I'D CHANGE =====
+				<div class="row">
+					<div class="col-md-8">
+						<h3 class="h4">What I'd change</h3>
+						<p>[One or two lessons from bring-up, e.g. current-limit tuning (909&nbsp;&Omega; / 1.15&nbsp;k&Omega; / 1.30&nbsp;k&Omega;), ceramic population, or a layout change you'd make in Rev 4.]</p>
+					</div>
+				</div>
+				===== end F ===== -->
+
+			</div>
+			<!-- ============ END BRING-UP AND TESTING ============ -->
+
+			<!-- ============ SKILLS ============ -->
+			<div class="container project-section">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="fh5co-uppercase-heading-sm">Skills Used</h2>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<h3 class="h4">Power Electronics Design</h3>
+						<p>Synchronous buck design from datasheet equations: on-time, inductor ripple, ESR window, current limit, MOSFET and gate-drive losses.</p>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<h3 class="h4">Switching-Converter Layout</h3>
+						<p>4-layer Altium layouts across three revisions: hot-loop minimization, switch-node sizing, ground-pour via placement, trace-width sizing, and DNP contingency footprints.</p>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<h3 class="h4">Design Verification</h3>
+						<p>A spreadsheet calculator with automated checks, validated against the datasheet's worked example and TI's own calculator, with PSpice simulation before any parts were ordered.</p>
+					</div>
+				</div>
+			</div>
+			<!-- ============ END SKILLS ============ -->
+
+			<div class="fh5co-spacer fh5co-spacer-sm"></div>
+
+			<div class="container">
+				<a href="projects.html#hardware" class="project-back">&larr; All projects</a>
+			</div>
+
+			<div class="fh5co-spacer fh5co-spacer-md"></div>
+
+		</main>
+
+		<footer id="fh5co-footer" role="contentinfo">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-push-6 col-md-6">
+						<ul class="fh5co-footer-social">
+							<li><a href="mailto:marlongeorgebuchanan@gmail.com">Email</a></li>
+							<li><a href="https://www.linkedin.com/in/marlongb/">LinkedIn</a></li>
+							<li><a href="https://github.com/marlongbs-git">GitHub</a></li>
+						</ul>
+						<p class="fh5co-copyright">
+							<small>&copy; 2026 Marlon Buchanan. All Rights Reserved.<br>
+							Designed with: <a href="http://freehtml5.co/">freehtml5.co</a></small>
+						</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Go To Top -->
+		<a href="#" class="fh5co-gotop"><i class="ti-shift-left"></i></a>
+
+		<!-- jQuery -->
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<!-- jQuery Easing -->
+		<script src="js/jquery.easing.1.3.js"></script>
+		<!-- Bootstrap -->
+		<script src="js/bootstrap.js"></script>
+		<!-- Owl carousel -->
+		<script src="js/owl.carousel.min.js"></script>
+		<!-- Magnific Popup -->
+		<script src="js/jquery.magnific-popup.min.js"></script>
+		<!-- Easy Responsive Tabs -->
+		<script src="js/easyResponsiveTabs.js"></script>
+		<!-- FastClick for Mobile/Tablets -->
+		<script src="js/fastclick.js"></script>
+		<!-- Velocity -->
+		<script src="js/velocity.min.js"></script>
+
+		<!-- Main JS -->
+		<script src="js/main.js"></script>
+
+	</body>
+</html>
